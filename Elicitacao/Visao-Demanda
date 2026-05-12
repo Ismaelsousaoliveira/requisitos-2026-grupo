@@ -114,56 +114,172 @@ Responsável pela gestão do processo de locação e supervisão do uso dos proj
 - **Frequência:** Média
 - **Valor:** Médio
 
-## 7. Arquitetura da Demanda
+## 7. Diagramas UML
 
-Inclua um diagrama simples (pode ser desenhado à mão e digitalizado, ou feito em ferramenta online) mostrando os principais componentes e integrações.
+Os diagramas abaixo foram desenvolvidos em **Mermaid**, que renderiza diretamente no VS Code (com `Ctrl+Shift+V` para preview) e nativamente no GitHub.
 
-**Exemplo:**
+### 7.1. Diagrama de Casos de Uso
 
-> O sistema será composto por três módulos principais: Portal do Aluno, Portal do Professor e Módulo Administrativo. Integração com sistema acadêmico via API REST.
+Ilustra os atores do sistema e suas interações com as funcionalidades principais.
 
-Sugestão: utilize mapas de histórias ou diagramas de caso de uso (UML) para ilustrar.
+```mermaid
+flowchart LR
+    UC01("UC01 - Solicitar Projetor")
+    UC02("UC02 - Consultar Disponibilidade")
+    UC03("UC03 - Registrar Retirada")
+    UC04("UC04 - Registrar Devolução")
+    UC05("UC05 - Gerenciar Projetores")
+    UC06("UC06 - Gerenciar Usuários")
+    UC07("UC07 - Consultar Histórico")
+    UC08("UC08 - Autenticar Usuário")
 
-### 7.1. Diagramas UML
+    Prof(("Professor"))
+    Func(("Funcionário do CCT"))
+    Coord(("Coordenação do CCT"))
 
-Apresente os diagramas que representam a arquitetura e estrutura da solução.
+    Prof --> UC01
+    Prof --> UC02
+    Func --> UC02
+    Func --> UC03
+    Func --> UC04
+    Func --> UC05
+    Func --> UC06
+    Coord --> UC07
 
-#### 7.1.1. Diagrama de Caso de Uso
+    UC01 -.->|include| UC08
+    UC03 -.->|include| UC08
+    UC04 -.->|include| UC08
+    UC05 -.->|include| UC08
+    UC06 -.->|include| UC08
+    UC07 -.->|include| UC08
+```
 
-Ilustra os atores (usuários e sistemas externos) e as interações principais com a solução.
+**Descrição dos Casos de Uso:**
 
-**Exemplo:**
-> [Insira a imagem do diagrama de caso de uso ou link para o arquivo]
+| Código | Nome | Ator Principal | Descrição |
+|--------|------|----------------|-----------|
+| UC01 | Solicitar Projetor | Professor | Permite ao professor solicitar reserva de um projetor informando data, horário e finalidade |
+| UC02 | Consultar Disponibilidade | Professor, Funcionário | Permite visualizar quais projetores estão disponíveis para uso |
+| UC03 | Registrar Retirada | Funcionário do CCT | Registra a entrega de um projetor vinculado a uma solicitação |
+| UC04 | Registrar Devolução | Funcionário do CCT | Registra a devolução do projetor após o uso |
+| UC05 | Gerenciar Projetores | Funcionário do CCT | Cadastrar, editar e remover projetores do sistema |
+| UC06 | Gerenciar Usuários | Funcionário do CCT | Cadastrar e gerenciar professores e funcionários autorizados |
+| UC07 | Consultar Histórico | Coordenação do CCT | Visualizar o histórico de locações e devoluções |
+| UC08 | Autenticar Usuário | Sistema | Validar credenciais de acesso ao sistema (<<include>>) |
 
-**Descrição dos casos de uso principais:**
-- CU1: Solicitar Estágio
-- CU2: Aprovar Solicitação
-- CU3: Acompanhar Progresso
+### 7.2. Diagrama de Classes
 
-#### 7.1.2. Diagrama de Componentes
+Apresenta a estrutura estática do sistema, com as classes, atributos, métodos e relacionamentos.
 
-Descreve os principais componentes do sistema e suas dependências.
+```mermaid
+classDiagram
+    class Usuario {
+        - int id
+        - String nome
+        - String email
+        - String senha
+        - String tipo
+        + autenticar() bool
+    }
 
-**Exemplo:**
-> [Insira a imagem do diagrama de componentes ou link para o arquivo]
+    class Professor {
+        - String departamento
+        + solicitarProjetor() void
+        + consultarDisponibilidade() List
+    }
 
-**Componentes principais:**
-- Portal do Aluno
-- Portal do Professor
-- Módulo Administrativo
-- API de Integração
+    class FuncionarioCCT {
+        - String cargo
+        + registrarRetirada() void
+        + registrarDevolucao() void
+        + cadastrarProjetor() void
+        + gerenciarUsuarios() void
+    }
 
-#### 7.1.3. Diagrama de Implantação
+    class Coordenacao {
+        - String cargo
+        + consultarHistorico() List
+    }
 
-Mostra como os componentes serão distribuídos nos ambientes de execução (servidores, máquinas clientes, nuvem, etc.).
+    class Projetor {
+        - int id
+        - String patrimonio
+        - String marca
+        - String modelo
+        - String status
+        - Date dataAquisicao
+        + isDisponivel() bool
+    }
 
-**Exemplo:**
-> [Insira a imagem do diagrama de implantação ou link para o arquivo]
+    class Solicitacao {
+        - int id
+        - Date dataSolicitacao
+        - Date dataUso
+        - String horarioInicio
+        - String horarioFim
+        - String finalidade
+        - String status
+        + confirmar() void
+        + cancelar() void
+    }
 
-**Ambiente de execução:**
-- Servidor Web (Aplicação)
-- Banco de Dados
-- Servidor de Aplicação
+    class Emprestimo {
+        - int id
+        - Date dataRetirada
+        - Date dataDevolucao
+        - String observacao
+        + registrarDevolucao() void
+    }
+
+    Usuario <|-- Professor
+    Usuario <|-- FuncionarioCCT
+    Usuario <|-- Coordenacao
+    Usuario "1" --> "*" Solicitacao : realiza
+    Projetor "1" --> "*" Emprestimo : vinculado a
+    Solicitacao "1" --> "0..1" Emprestimo : gera
+    Solicitacao "*" --> "1" Projetor : referencia
+```
+
+### 7.3. Diagrama de Sequência
+
+Demonstra a interação temporal entre os atores e o sistema para o fluxo completo de solicitação, retirada e devolução de um projetor.
+
+```mermaid
+sequenceDiagram
+    participant Professor
+    participant FuncionárioCCT as Funcionário CCT
+    participant Sistema as Sistema GAC
+    participant BD as Banco de Dados
+
+    Note over Professor,BD: Solicitação de Projetor
+    Professor ->> Sistema: solicitarProjetor(data, horario, finalidade)
+    Sistema ->> Sistema: verificarDisponibilidade(projetor, data, horario)
+    Sistema -->> Professor: disponibilidadeConfirmada
+    Professor ->> Sistema: confirmarSolicitacao()
+    Sistema ->> BD: salvarSolicitacao(dados)
+    BD -->> Sistema: solicitacaoRegistrada
+    Sistema -->> Professor: solicitacaoConfirmada
+
+    Note over Professor,BD: Retirada do Projetor
+    Professor ->> FuncionárioCCT: apresentarSolicitacao
+    FuncionárioCCT ->> Sistema: registrarRetirada(solicitacaoId)
+    Sistema ->> BD: buscarSolicitacao(id)
+    BD -->> Sistema: dadosSolicitacao
+    Sistema ->> BD: criarEmprestimo(dadosRetirada)
+    BD -->> Sistema: emprestimoRegistrado
+    Sistema -->> FuncionárioCCT: projetorLiberado
+    FuncionárioCCT -->> Professor: entregarProjetor
+
+    Note over Professor,BD: Devolução do Projetor
+    FuncionárioCCT ->> Sistema: registrarDevolucao(emprestimoId)
+    Sistema ->> BD: buscarEmprestimo(id)
+    BD -->> Sistema: dadosEmprestimo
+    Sistema ->> BD: atualizarDevolucao(data, observacao)
+    BD -->> Sistema: devolucaoRegistrada
+    Sistema -->> FuncionárioCCT: devolucaoConfirmada
+```
+
+> **Visualização:** No VS Code pressione `Ctrl+Shift+V` para preview. No GitHub os diagramas renderizam automaticamente.
 
 ---
 
