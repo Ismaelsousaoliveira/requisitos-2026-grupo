@@ -14,7 +14,7 @@ O propósito deste projeto é desenvolver um sistema digital para automatizar e 
 
 ## 2. Proposta de Valor
 
-O projeto propõe a digitalização e automação do processo de locação de projetores na universidade, substituindo o controle manual por formulários físicos.
+O projeto propõe a digitalização e automação do processo de locação de projetores na universidade, substituindo o controle manual por digital.
 
 Com a solução, professores e funcionários poderão realizar solicitações de forma remota e mais ágil, eliminando a necessidade de filas e reduzindo o tempo de atendimento, além de melhorar a organização e o controle dos equipamentos.
 
