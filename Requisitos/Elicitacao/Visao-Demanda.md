@@ -5,8 +5,7 @@
 | Data | Versão | Descrição | Autor |
 | --- | --- | --- | --- |
 | 12/05/2026| 1.0 | Criação inicial do documento de visão da demanda | Bruno Magalhaes |
-|  |  |  |  |
-|  |  |  |  |
+| 23/05/2026| 1.1 | Integração de formulários, termo de responsabilidade, limite de retirada e confirmação de recebimento nos diagramas | Equipe Dois |
 
 ## 1. Objetivo
 
@@ -52,7 +51,15 @@ Responsável pela gestão do processo de locação e supervisão do uso dos proj
 
 #### F1.1 Cadastro de solicitação de projetor
 
-- **Descrição:** Permite ao professor solicitar a reserva de um projetor para uso em determinada data e horário.
+- **Descrição:** Permite ao professor solicitar a reserva de um projetor para uso em determinada data e horário, preenchendo formulário com dados da solicitação.
+- **Incluída**
+- **Atores:** Professor
+- **Frequência:** Alta
+- **Valor:** Alto
+
+#### F1.2 Assinatura de termo de responsabilidade
+
+- **Descrição:** Permite ao professor assinar digitalmente o termo de responsabilidade vinculado à solicitação do projetor, assumindo os deveres de uso e devolução.
 - **Incluída**
 - **Atores:** Professor
 - **Frequência:** Alta
@@ -76,13 +83,21 @@ Responsável pela gestão do processo de locação e supervisão do uso dos proj
 
 #### F3.1 Registro de retirada de projetor
 
-- **Descrição:** Permite registrar a entrega de um projetor ao professor responsável pela solicitação.
+- **Descrição:** Permite registrar a entrega de um projetor ao professor responsável pela solicitação, verificando se a retirada está dentro do prazo limite estabelecido.
 - **Incluída**
 - **Atores:** Funcionário do CCT
 - **Frequência:** Alta
 - **Valor:** Alto
 
-#### F3.2 Registro de devolução de projetor
+#### F3.2 Confirmação de recebimento do projetor
+
+- **Descrição:** Permite ao professor confirmar que recebeu o projetor em mãos no momento da retirada.
+- **Incluída**
+- **Atores:** Professor
+- **Frequência:** Alta
+- **Valor:** Alto
+
+#### F3.3 Registro de devolução de projetor
 
 - **Descrição:** Permite registrar a devolução do projetor após o uso.
 - **Incluída**
@@ -127,11 +142,13 @@ flowchart LR
     UC01("UC01 - Solicitar Projetor")
     UC02("UC02 - Consultar Disponibilidade")
     UC03("UC03 - Registrar Retirada")
-    UC04("UC04 - Registrar Devolução")
-    UC05("UC05 - Gerenciar Projetores")
-    UC06("UC06 - Gerenciar Usuários")
-    UC07("UC07 - Consultar Histórico")
-    UC08("UC08 - Autenticar Usuário")
+    UC04("UC04 - Confirmar Recebimento")
+    UC05("UC05 - Registrar Devolução")
+    UC06("UC06 - Gerenciar Projetores")
+    UC07("UC07 - Gerenciar Usuários")
+    UC08("UC08 - Consultar Histórico")
+    UC09("UC09 - Autenticar Usuário")
+    UC10("UC10 - Assinar Termo de Responsabilidade")
 
     Prof(("Professor"))
     Func(("Funcionário do CCT"))
@@ -139,33 +156,38 @@ flowchart LR
 
     Prof --> UC01
     Prof --> UC02
+    Prof --> UC04
     Func --> UC02
     Func --> UC03
-    Func --> UC04
     Func --> UC05
     Func --> UC06
-    Coord --> UC07
+    Func --> UC07
+    Coord --> UC08
 
-    UC01 -.->|include| UC08
-    UC03 -.->|include| UC08
-    UC04 -.->|include| UC08
-    UC05 -.->|include| UC08
-    UC06 -.->|include| UC08
-    UC07 -.->|include| UC08
+    UC01 -.->|include| UC09
+    UC01 -.->|include| UC10
+    UC03 -.->|include| UC09
+    UC04 -.->|include| UC09
+    UC05 -.->|include| UC09
+    UC06 -.->|include| UC09
+    UC07 -.->|include| UC09
+    UC08 -.->|include| UC09
 ```
 
 **Descrição dos Casos de Uso:**
 
 | Código | Nome | Ator Principal | Descrição |
 |--------|------|----------------|-----------|
-| UC01 | Solicitar Projetor | Professor | Permite ao professor solicitar reserva de um projetor informando data, horário e finalidade |
+| UC01 | Solicitar Projetor | Professor | Permite ao professor solicitar reserva de um projetor informando data, horário, finalidade, preenchendo formulário e assinando termo de responsabilidade |
 | UC02 | Consultar Disponibilidade | Professor, Funcionário | Permite visualizar quais projetores estão disponíveis para uso |
-| UC03 | Registrar Retirada | Funcionário do CCT | Registra a entrega de um projetor vinculado a uma solicitação |
-| UC04 | Registrar Devolução | Funcionário do CCT | Registra a devolução do projetor após o uso |
-| UC05 | Gerenciar Projetores | Funcionário do CCT | Cadastrar, editar e remover projetores do sistema |
-| UC06 | Gerenciar Usuários | Funcionário do CCT | Cadastrar e gerenciar professores e funcionários autorizados |
-| UC07 | Consultar Histórico | Coordenação do CCT | Visualizar o histórico de locações e devoluções |
-| UC08 | Autenticar Usuário | Sistema | Validar credenciais de acesso ao sistema (<<include>>) |
+| UC03 | Registrar Retirada | Funcionário do CCT | Registra a entrega de um projetor vinculado a uma solicitação, verificando o prazo limite de retirada |
+| UC04 | Confirmar Recebimento | Professor | Permite ao professor confirmar que recebeu o projetor em mãos no momento da retirada |
+| UC05 | Registrar Devolução | Funcionário do CCT | Registra a devolução do projetor após o uso |
+| UC06 | Gerenciar Projetores | Funcionário do CCT | Cadastrar, editar e remover projetores do sistema |
+| UC07 | Gerenciar Usuários | Funcionário do CCT | Cadastrar e gerenciar professores e funcionários autorizados |
+| UC08 | Consultar Histórico | Coordenação do CCT | Visualizar o histórico de locações e devoluções |
+| UC09 | Autenticar Usuário | Sistema | Validar credenciais de acesso ao sistema (<<include>>) |
+| UC10 | Assinar Termo de Responsabilidade | Professor | Assinar digitalmente o termo de responsabilidade vinculado à solicitação do projetor |
 
 ### 7.2. Diagrama de Classes
 
@@ -186,6 +208,8 @@ classDiagram
         - String departamento
         + solicitarProjetor() void
         + consultarDisponibilidade() List
+        + assinarTermoResponsabilidade() void
+        + confirmarRecebimento() void
     }
 
     class FuncionarioCCT {
@@ -219,6 +243,7 @@ classDiagram
         - String horarioFim
         - String finalidade
         - String status
+        - Date dataLimiteRetirada
         + confirmar() void
         + cancelar() void
     }
@@ -228,7 +253,17 @@ classDiagram
         - Date dataRetirada
         - Date dataDevolucao
         - String observacao
+        - bool confirmacaoRetirada
+        - Date dataConfirmacaoRetirada
         + registrarDevolucao() void
+        + confirmarRecebimento() void
+    }
+
+    class TermoResponsabilidade {
+        - int id
+        - String conteudo
+        - Date dataAssinatura
+        + assinar() void
     }
 
     Usuario <|-- Professor
@@ -238,6 +273,8 @@ classDiagram
     Projetor "1" --> "*" Emprestimo : vinculado a
     Solicitacao "1" --> "0..1" Emprestimo : gera
     Solicitacao "*" --> "1" Projetor : referencia
+    Solicitacao "1" --> "1" TermoResponsabilidade : possui
+    Professor "1" --> "*" TermoResponsabilidade : assina
 ```
 
 ### 7.3. Diagrama de Sequência
@@ -255,13 +292,22 @@ sequenceDiagram
     Professor ->> Sistema: solicitarProjetor(data, horario, finalidade)
     Sistema ->> Sistema: verificarDisponibilidade(projetor, data, horario)
     Sistema -->> Professor: disponibilidadeConfirmada
-    Professor ->> Sistema: confirmarSolicitacao()
+    Professor ->> Sistema: preencherFormulario(dados)
+    Sistema ->> BD: salvarFormulario(dados)
+    BD -->> Sistema: formularioSalvo
+    Professor ->> Sistema: assinarTermoResponsabilidade()
+    Sistema ->> BD: salvarTermo(idSolicitacao)
+    BD -->> Sistema: termoAssinado
+    Sistema ->> Sistema: definirDataLimiteRetirada()
     Sistema ->> BD: salvarSolicitacao(dados)
     BD -->> Sistema: solicitacaoRegistrada
     Sistema -->> Professor: solicitacaoConfirmada
 
     Note over Professor,BD: Retirada do Projetor
     Professor ->> FuncionárioCCT: apresentarSolicitacao
+    FuncionárioCCT ->> Sistema: verificarSolicitacao(id)
+    Sistema ->> Sistema: verificarLimiteRetirada(dataLimite)
+    Sistema -->> FuncionárioCCT: dentroDoPrazo
     FuncionárioCCT ->> Sistema: registrarRetirada(solicitacaoId)
     Sistema ->> BD: buscarSolicitacao(id)
     BD -->> Sistema: dadosSolicitacao
@@ -269,6 +315,10 @@ sequenceDiagram
     BD -->> Sistema: emprestimoRegistrado
     Sistema -->> FuncionárioCCT: projetorLiberado
     FuncionárioCCT -->> Professor: entregarProjetor
+    Professor ->> Sistema: confirmarRecebimento(emprestimoId)
+    Sistema ->> BD: atualizarConfirmacaoRetirada(id)
+    BD -->> Sistema: confirmacaoRegistrada
+    Sistema -->> Professor: recebimentoConfirmado
 
     Note over Professor,BD: Devolução do Projetor
     FuncionárioCCT ->> Sistema: registrarDevolucao(emprestimoId)
