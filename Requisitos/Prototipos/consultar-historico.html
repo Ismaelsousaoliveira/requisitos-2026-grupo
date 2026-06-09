@@ -1,89 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Histórico — GAC</title>
-<link rel="stylesheet" href="style.css"></head>
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Histórico — GAC</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<div class="app">
-    <aside class="sidebar">
-        <div class="sidebar-brand">
-            <div class="logo-mark">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            </div>
-            <span>GAC</span>
-        </div>
-        <div class="sidebar-section">Navegação</div>
-        <nav>
-            <a href="dashboard-coordenacao.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
-                Dashboard
-            </a>
-            <a href="consultar-disponibilidade.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></span>
-                Disponibilidade
-            </a>
-            <a href="consultar-historico.html" class="active">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span>
-                Histórico
-            </a>
-            <a href="login.html" class="logout">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
-                Sair
-            </a>
-        </nav>
-        <div class="sidebar-footer"><strong>Roberto Lima</strong>Coordenação CCT</div>
-    </aside>
-    <main class="main">
-        <header>
-            <div>
-                <h1>Histórico</h1>
-                <div class="page-title-desc">Consulte o histórico completo de empréstimos.</div>
-            </div>
-            <span class="badge badge-coord">Coordenação</span>
-        </header>
-        <div class="card">
-            <div class="card-body">
-                <div class="filters-bar">
-                    <div class="form-group">
-                        <label>Data Início</label>
-                        <input type="date" value="2026-05-01">
-                    </div>
-                    <div class="form-group">
-                        <label>Data Fim</label>
-                        <input type="date" value="2026-06-09">
-                    </div>
-                    <div class="form-group">
-                        <label>Projetor</label>
-                        <select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option></select>
-                    </div>
-                    <div class="form-group">
-                        <label>Professor</label>
-                        <select><option>Todos</option><option>João Silva</option><option>Maria Souza</option></select>
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select><option>Todos</option><option>Concluído</option><option>Em Andamento</option></select>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Filtrar</button>
-                    <button class="btn btn-outline btn-sm">Exportar PDF</button>
-                </div>
-                <div class="table-wrap">
-                    <table>
-                        <thead><tr><th>Data</th><th>Professor</th><th>Projetor</th><th>Retirada</th><th>Devolução</th><th>Status</th></tr></thead>
-                        <tbody>
-                            <tr><td>09/06/2026</td><td><strong>Maria Souza</strong></td><td>PROJ-005</td><td>08:00</td><td>10:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
-                            <tr><td>09/06/2026</td><td><strong>João Lima</strong></td><td>PROJ-012</td><td>10:00</td><td>—</td><td><span class="tag tag-blue">Em Andamento</span></td></tr>
-                            <tr><td>08/06/2026</td><td><strong>Ana Costa</strong></td><td>PROJ-003</td><td>14:00</td><td>16:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
-                            <tr><td>08/06/2026</td><td><strong>João Silva</strong></td><td>PROJ-001</td><td>08:00</td><td>10:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
-                            <tr><td>07/06/2026</td><td><strong>Maria Souza</strong></td><td>PROJ-007</td><td>10:00</td><td>12:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
-                            <tr><td>07/06/2026</td><td><strong>Roberto Lima</strong></td><td>PROJ-003</td><td>15:00</td><td>17:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Exibindo 6 de 47 registros no período.</p>
-            </div>
-        </div>
-    </main>
-</div>
+<header><div><h1>Histórico</h1><div class="page-desc">Consulte o histórico completo de empréstimos.</div></div><span class="badge badge-coord">Coordenação</span></header>
+<div class="card"><div class="card-bd">
+  <div class="filters-bar">
+    <div class="form-group"><label>Data Início</label><input type="date" value="2026-05-01"></div>
+    <div class="form-group"><label>Data Fim</label><input type="date" value="2026-06-09"></div>
+    <div class="form-group"><label>Projetor</label><select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option></select></div>
+    <div class="form-group"><label>Professor</label><select><option>Todos</option><option>João Silva</option><option>Maria Souza</option></select></div>
+    <div class="form-group"><label>Status</label><select><option>Todos</option><option>Concluído</option><option>Em Andamento</option></select></div>
+    <button class="btn btn-primary btn-sm">Filtrar</button>
+    <button class="btn btn-outline btn-sm">Exportar PDF</button>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Data</th><th>Professor</th><th>Projetor</th><th>Retirada</th><th>Devolução</th><th>Status</th></tr></thead><tbody>
+<tr><td>09/06/2026</td><td><strong>Maria Souza</strong></td><td>PROJ-005</td><td>08:00</td><td>10:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td>09/06/2026</td><td><strong>João Lima</strong></td><td>PROJ-012</td><td>10:00</td><td>—</td><td><span class="tag tag-blue">Em Andamento</span></td></tr>
+<tr><td>08/06/2026</td><td><strong>Ana Costa</strong></td><td>PROJ-003</td><td>14:00</td><td>16:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td>08/06/2026</td><td><strong>João Silva</strong></td><td>PROJ-001</td><td>08:00</td><td>10:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td>07/06/2026</td><td><strong>Maria Souza</strong></td><td>PROJ-007</td><td>10:00</td><td>12:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td>07/06/2026</td><td><strong>Roberto Lima</strong></td><td>PROJ-003</td><td>15:00</td><td>17:00</td><td><span class="tag tag-green">Concluído</span></td></tr>
+</tbody></table></div>
+  <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Exibindo 6 de 47 registros no período.</p>
+</div></div>
 <div class="wireframe-label">Histórico</div>
 </body>
 </html>

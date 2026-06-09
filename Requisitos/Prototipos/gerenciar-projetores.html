@@ -1,107 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Projetores — GAC</title>
-<link rel="stylesheet" href="style.css"></head>
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Projetores — GAC</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<div class="app">
-    <aside class="sidebar">
-        <div class="sidebar-brand">
-            <div class="logo-mark">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            </div>
-            <span>GAC</span>
-        </div>
-        <div class="sidebar-section">Navegação</div>
-        <nav>
-            <a href="dashboard-funcionario.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
-                Dashboard
-            </a>
-            <a href="consultar-disponibilidade.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></span>
-                Disponibilidade
-            </a>
-            <a href="registrar-retirada.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg></span>
-                Registrar Retirada
-            </a>
-            <a href="registrar-devolucao.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span>
-                Registrar Devolução
-            </a>
-            <a href="gerenciar-projetores.html" class="active">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
-                Projetores
-            </a>
-            <a href="gerenciar-usuarios.html">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
-                Usuários
-            </a>
-            <a href="login.html" class="logout">
-                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
-                Sair
-            </a>
-        </nav>
-        <div class="sidebar-footer"><strong>Carlos Pereira</strong>Funcionário CCT</div>
-    </aside>
-    <main class="main">
-        <header>
-            <div>
-                <h1>Projetores</h1>
-                <div class="page-title-desc">Gerencie o cadastro de projetores do CCT.</div>
-            </div>
-            <button class="btn btn-primary btn-sm" onclick="alert('Abrir formulário de cadastro...')">+ Novo Projetor</button>
-        </header>
-        <div class="card" style="margin-bottom:24px;">
-            <div class="card-header"><h2>Projetores Cadastrados</h2></div>
-            <div class="card-body">
-                <div class="table-wrap">
-                    <table>
-                        <thead><tr><th>Patrimônio</th><th>Marca</th><th>Modelo</th><th>Status</th><th>Aquisição</th><th style="text-align:center;">Ações</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>PROJ-001</strong></td><td>Epson</td><td>PowerLite X51</td><td><span class="tag tag-green">Disponível</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-002</strong></td><td>Epson</td><td>PowerLite X51</td><td><span class="tag tag-blue">Emprestado</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-003</strong></td><td>BenQ</td><td>MH535</td><td><span class="tag tag-green">Disponível</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-004</strong></td><td>BenQ</td><td>MH535</td><td><span class="tag tag-yellow">Manutenção</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-005</strong></td><td>Epson</td><td>2250U</td><td><span class="tag tag-green">Disponível</span></td><td>22/01/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-007</strong></td><td>Sony</td><td>VPL-EX5</td><td><span class="tag tag-green">Disponível</span></td><td>05/05/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                            <tr><td><strong>PROJ-012</strong></td><td>Optoma</td><td>HD146X</td><td><span class="tag tag-green">Disponível</span></td><td>18/11/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header"><h2>Cadastrar Novo Projetor</h2></div>
-            <div class="card-body">
-                <div class="form-row" style="max-width:600px;">
-                    <div class="form-group">
-                        <label>Nº Patrimônio</label>
-                        <input type="text" placeholder="Ex: PROJ-013">
-                    </div>
-                    <div class="form-group">
-                        <label>Marca</label>
-                        <input type="text" placeholder="Ex: Epson, BenQ">
-                    </div>
-                </div>
-                <div class="form-row" style="max-width:600px;">
-                    <div class="form-group">
-                        <label>Modelo</label>
-                        <input type="text" placeholder="Ex: PowerLite X51">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de Aquisição</label>
-                        <input type="date">
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <button class="btn btn-success" onclick="alert('Projetor cadastrado com sucesso!');">Salvar</button>
-                    <button class="btn btn-outline">Limpar</button>
-                </div>
-            </div>
-        </div>
-    </main>
-</div>
+<header><div><h1>Projetores</h1><div class="page-desc">Gerencie o cadastro de projetores do CCT.</div></div><button class="btn btn-primary btn-sm" onclick="alert('Abrir formulário de cadastro...')">+ Novo Projetor</button></header>
+<div class="card" style="margin-bottom:24px;"><div class="card-hd"><h2>Projetores Cadastrados</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Patrimônio</th><th>Marca</th><th>Modelo</th><th>Status</th><th>Aquisição</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>PROJ-001</strong></td><td>Epson</td><td>PowerLite X51</td><td><span class="tag tag-green">Disponível</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-002</strong></td><td>Epson</td><td>PowerLite X51</td><td><span class="tag tag-blue">Emprestado</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-003</strong></td><td>BenQ</td><td>MH535</td><td><span class="tag tag-green">Disponível</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-004</strong></td><td>BenQ</td><td>MH535</td><td><span class="tag tag-yellow">Manutenção</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-005</strong></td><td>Epson</td><td>2250U</td><td><span class="tag tag-green">Disponível</span></td><td>22/01/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-007</strong></td><td>Sony</td><td>VPL-EX5</td><td><span class="tag tag-green">Disponível</span></td><td>05/05/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+<tr><td><strong>PROJ-012</strong></td><td>Optoma</td><td>HD146X</td><td><span class="tag tag-green">Disponível</span></td><td>18/11/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;">Inativar</button></td></tr>
+</tbody></table></div></div></div>
+<div class="card"><div class="card-hd"><h2>Cadastrar Novo Projetor</h2></div><div class="card-bd">
+  <div class="form-row" style="max-width:600px;"><div class="form-group"><label>Nº Patrimônio</label><input type="text" placeholder="Ex: PROJ-013"></div><div class="form-group"><label>Marca</label><input type="text" placeholder="Ex: Epson, BenQ"></div></div>
+  <div class="form-row" style="max-width:600px;"><div class="form-group"><label>Modelo</label><input type="text" placeholder="Ex: PowerLite X51"></div><div class="form-group"><label>Data de Aquisição</label><input type="date"></div></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="alert('Projetor cadastrado com sucesso!');">Salvar</button><button class="btn btn-outline">Limpar</button></div>
+</div></div>
 <div class="wireframe-label">Gerenciar Projetores</div>
 </body>
 </html>

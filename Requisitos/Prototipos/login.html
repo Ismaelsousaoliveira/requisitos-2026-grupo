@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login — GAC</title>
-<link rel="stylesheet" href="style.css"></head>
-<body class="bg-login">
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login — GAC</title><link rel="stylesheet" href="style.css">
+<style>body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--bg);padding:0}.login-card{background:var(--surface);border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,.06);padding:40px;width:380px;text-align:center;border:1px solid var(--border)}.logo-area{margin-bottom:28px}.logo-mark{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:#fff}.logo-area h1{font-size:24px;font-weight:700;margin-bottom:4px}.logo-area p{font-size:13px;color:var(--text-muted);line-height:1.5}.field{margin-bottom:16px;text-align:left}.field label{display:block;font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:5px}.field input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;background:#fafafa}.field input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.08);background:#fff}.login-card .btn{width:100%;justify-content:center;margin-top:4px;padding:11px}.login-link{font-size:13px;color:var(--primary);margin-top:16px;cursor:pointer}.wireframe-label{position:fixed;bottom:8px;left:50%;transform:translateX(-50%)}</style></head>
+<body>
 <div class="login-card">
-    <div class="logo-area">
-        <div class="logo-mark">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-        </div>
-        <h1>GAC</h1>
-        <p>Sistema de Gerenciamento de<br>Locação de Projetores</p>
-    </div>
-    <form>
-        <div class="field">
-            <label>E-mail Institucional</label>
-            <input type="email" placeholder="seu@email.instituicao.edu" value="professor@cct.instituicao.edu">
-        </div>
-        <div class="field">
-            <label>Senha</label>
-            <input type="password" value="********">
-        </div>
-        <button class="btn btn-primary" onclick="alert('Login realizado! Redirecionando...'); return false;">Acessar</button>
-        <p class="login-link">Esqueceu sua senha?</p>
-    </form>
+  <div class="logo-area">
+    <div class="logo-mark"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+    <h1>GAC</h1>
+    <p>Sistema de Gerenciamento de<br>Locação de Projetores</p>
+  </div>
+  <form>
+    <div class="field"><label>E-mail Institucional</label><input type="email" placeholder="seu@email.instituicao.edu" value="professor@cct.instituicao.edu"></div>
+    <div class="field"><label>Senha</label><input type="password" value="********"></div>
+    <button class="btn btn-primary" onclick="alert('Login realizado! Redirecionando...');return false">Acessar</button>
+    <p class="login-link">Esqueceu sua senha?</p>
+  </form>
 </div>
 <div class="wireframe-label">Login</div>
 </body>
