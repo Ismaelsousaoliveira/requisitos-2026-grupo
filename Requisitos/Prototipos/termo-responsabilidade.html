@@ -4,22 +4,48 @@
 <link rel="stylesheet" href="style.css"></head>
 <body>
 <div class="app">
-    <aside class="menu">
-        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo-mark">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <span>GAC</span>
+        </div>
+        <div class="sidebar-section">Navegação</div>
         <nav>
-            <a href="dashboard-professor.html">📊 Dashboard</a>
-            <a href="solicitar-projetor.html" class="active">📝 Solicitar Projetor</a>
-            <a href="minhas-solicitacoes.html">📂 Minhas Solicitações</a>
-            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
-            <a href="login.html" class="logout">🚪 Sair</a>
+            <a href="dashboard-professor.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Dashboard
+            </a>
+            <a href="solicitar-projetor.html" class="active">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+                Solicitar Projetor
+            </a>
+            <a href="minhas-solicitacoes.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></span>
+                Minhas Solicitações
+            </a>
+            <a href="consultar-disponibilidade.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></span>
+                Disponibilidade
+            </a>
+            <a href="login.html" class="logout">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
+                Sair
+            </a>
         </nav>
-        <div class="menu-footer">Professor<br><small>joao.silva@cct.edu</small></div>
+        <div class="sidebar-footer"><strong>João Silva</strong>Professor</div>
     </aside>
     <main class="main">
+        <header>
+            <div>
+                <h1>Termo de Responsabilidade</h1>
+                <div class="page-title-desc">PROJ-003 · 15/06/2026 · 08:00 — 10:00</div>
+            </div>
+            <span class="badge badge-prof">Professor</span>
+        </header>
         <div class="form-card">
-            <h2>📋 Termo de Responsabilidade</h2>
-            <p style="color:#666; margin-bottom:16px;">Solicitação: PROJ-003 | 15/06/2026 | 08:00-10:00</p>
-            <div class="termo-box">
+            <div class="term-box">
                 <p><strong>TERMO DE RESPONSABILIDADE PELO USO DE PROJETOR</strong></p>
                 <br>
                 <p>Eu, <strong>João da Silva</strong>, professor do Centro de Ciências Tecnológicas (CCT), declaro que estou ciente e concordo com as seguintes condições:</p>
@@ -32,17 +58,17 @@
                 <br>
                 <p>Este termo foi gerado eletronicamente em 09/06/2026 às 14:32.</p>
             </div>
-            <div class="checkbox-group">
+            <div class="check-row">
                 <input type="checkbox" id="aceite" checked>
-                <label for="aceite"><strong>Declaro que li e aceito os termos acima</strong></label>
+                <label for="aceite">Declaro que li e aceito os termos acima</label>
             </div>
             <div class="btn-group">
                 <button class="btn btn-success" onclick="alert('Solicitação registrada com sucesso! Nº #2027'); location='minhas-solicitacoes.html'">Assinar e Confirmar</button>
-                <button class="btn btn-outline" onclick="history.back()">Voltar</button>
+                <button class="btn btn-outline">Voltar</button>
             </div>
         </div>
     </main>
 </div>
-<div class="wireframe-label">📋 Termo de Responsabilidade — IU04</div>
+<div class="wireframe-label">Termo de Responsabilidade</div>
 </body>
 </html>

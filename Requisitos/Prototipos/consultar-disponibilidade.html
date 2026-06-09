@@ -1,94 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Consultar Disponibilidade — GAC</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Disponibilidade — GAC</title>
 <link rel="stylesheet" href="style.css"></head>
 <body>
 <div class="app">
-    <aside class="menu">
-        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo-mark">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <span>GAC</span>
+        </div>
+        <div class="sidebar-section">Navegação</div>
         <nav>
-            <a href="dashboard-funcionario.html">📊 Dashboard</a>
-            <a href="consultar-disponibilidade.html" class="active">🔍 Disponibilidade</a>
-            <a href="registrar-retirada.html">📤 Registrar Retirada</a>
-            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
-            <a href="gerenciar-projetores.html">🖥️ Projetores</a>
-            <a href="gerenciar-usuarios.html">👥 Usuários</a>
-            <a href="login.html" class="logout">🚪 Sair</a>
+            <a href="dashboard-funcionario.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Dashboard
+            </a>
+            <a href="consultar-disponibilidade.html" class="active">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></span>
+                Disponibilidade
+            </a>
+            <a href="registrar-retirada.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg></span>
+                Registrar Retirada
+            </a>
+            <a href="registrar-devolucao.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span>
+                Registrar Devolução
+            </a>
+            <a href="gerenciar-projetores.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+                Projetores
+            </a>
+            <a href="gerenciar-usuarios.html">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
+                Usuários
+            </a>
+            <a href="login.html" class="logout">
+                <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
+                Sair
+            </a>
         </nav>
-        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+        <div class="sidebar-footer"><strong>Carlos Pereira</strong>Funcionário CCT</div>
     </aside>
     <main class="main">
-        <header><h1>🔍 Consultar Disponibilidade</h1></header>
-        <div class="section">
-            <div class="filters">
-                <div class="form-group">
-                    <label>Data</label>
-                    <input type="date" value="2026-06-15">
-                </div>
-                <div class="form-group">
-                    <label>Projetor</label>
-                    <select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option><option>PROJ-005</option></select>
-                </div>
-                <button class="btn btn-primary small">Filtrar</button>
+        <header>
+            <div>
+                <h1>Disponibilidade</h1>
+                <div class="page-title-desc">Consulte a disponibilidade dos projetores em tempo real.</div>
             </div>
-            <table>
-                <tr>
-                    <th>Projetor</th>
-                    <th>08:00-10:00</th>
-                    <th>10:00-12:00</th>
-                    <th>13:00-15:00</th>
-                    <th>15:00-17:00</th>
-                    <th>17:00-19:00</th>
-                </tr>
-                <tr>
-                    <td><strong>PROJ-001</strong><br><small>Epson X51</small></td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                </tr>
-                <tr>
-                    <td><strong>PROJ-003</strong><br><small>BenQ MH535</small></td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
-                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                </tr>
-                <tr>
-                    <td><strong>PROJ-005</strong><br><small>Epson 2250U</small></td>
-                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
-                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
-                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
-                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
-                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
-                </tr>
-                <tr>
-                    <td><strong>PROJ-007</strong><br><small>Sony VPL</small></td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                </tr>
-                <tr>
-                    <td><strong>PROJ-012</strong><br><small>Optoma HD</small></td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
-                </tr>
-            </table>
-            <p style="margin-top:12px; font-size:12px; color:#888;">
-                <span style="display:inline-block; width:12px; height:12px; background:#e8f5e9; border-radius:2px;"></span> Disponível &nbsp;
-                <span style="display:inline-block; width:12px; height:12px; background:#ffebee; border-radius:2px;"></span> Ocupado &nbsp;
-                <span style="display:inline-block; width:12px; height:12px; background:#fff3e0; border-radius:2px;"></span> Manutenção
-            </p>
+            <span class="badge badge-func">Funcionário CCT</span>
+        </header>
+        <div class="card">
+            <div class="card-body">
+                <div class="filters-bar">
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="date" value="2026-06-15">
+                    </div>
+                    <div class="form-group">
+                        <label>Projetor</label>
+                        <select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option><option>PROJ-005</option><option>PROJ-007</option><option>PROJ-012</option></select>
+                    </div>
+                    <button class="btn btn-primary btn-sm">Filtrar</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="avail-grid">
+                        <thead><tr><th>Projetor</th><th>08:00-10:00</th><th>10:00-12:00</th><th>13:00-15:00</th><th>15:00-17:00</th><th>17:00-19:00</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>PROJ-001</strong><br><span style="font-size:12px;color:var(--text-muted);">Epson X51</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-busy">Ocupado</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PROJ-003</strong><br><span style="font-size:12px;color:var(--text-muted);">BenQ MH535</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-busy">Ocupado</span></td>
+                                <td><span class="slot slot-busy">Ocupado</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PROJ-005</strong><br><span style="font-size:12px;color:var(--text-muted);">Epson 2250U</span></td>
+                                <td><span class="slot slot-maint">Manutenção</span></td>
+                                <td><span class="slot slot-maint">Manutenção</span></td>
+                                <td><span class="slot slot-maint">Manutenção</span></td>
+                                <td><span class="slot slot-maint">Manutenção</span></td>
+                                <td><span class="slot slot-maint">Manutenção</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PROJ-007</strong><br><span style="font-size:12px;color:var(--text-muted);">Sony VPL-EX5</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-busy">Ocupado</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PROJ-012</strong><br><span style="font-size:12px;color:var(--text-muted);">Optoma HD146X</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                                <td><span class="slot slot-free">Disponível</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="legend">
+                    <span class="legend-item"><span class="legend-dot" style="background:#dcfce7;"></span> Disponível</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#fef2f2;"></span> Ocupado</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#fff7ed;"></span> Manutenção</span>
+                </div>
+            </div>
         </div>
     </main>
 </div>
-<div class="wireframe-label">🔍 Consultar Disponibilidade — IU05</div>
+<div class="wireframe-label">Disponibilidade</div>
 </body>
 </html>

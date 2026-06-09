@@ -5,69 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAC — Protótipos</title>
     <style>
+        :root { --primary: #1e40af; --sidebar-bg: #0f172a; --bg: #f1f5f9; --text: #0f172a; --text-muted: #94a3b8; --border: #e2e8f0; --radius: 12px; --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #333; display: flex; min-height: 100vh; }
-        .sidebar { width: 280px; background: #1a237e; color: white; padding: 24px 0; flex-shrink: 0; }
-        .sidebar h1 { font-size: 18px; padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px; }
-        .sidebar h1 small { display: block; font-size: 12px; font-weight: 400; opacity: 0.7; margin-top: 4px; }
-        .sidebar h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 16px 20px 8px; opacity: 0.6; }
-        .sidebar a { display: block; padding: 10px 20px; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: all 0.2s; border-left: 3px solid transparent; }
-        .sidebar a:hover { background: rgba(255,255,255,0.1); color: white; border-left-color: #448aff; }
-        .sidebar a.active { background: rgba(255,255,255,0.15); color: white; border-left-color: #448aff; font-weight: 600; }
-        .content { flex: 1; padding: 32px; }
-        .content h2 { font-size: 24px; margin-bottom: 8px; }
-        .content p { color: #666; margin-bottom: 24px; }
-        .iframe-container { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; height: calc(100vh - 120px); }
-        .iframe-container iframe { width: 100%; height: 100%; border: none; }
-        .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #999; }
-        .placeholder .icon { font-size: 64px; margin-bottom: 16px; }
-        .placeholder h3 { color: #333; margin-bottom: 8px; }
-        .tela-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-        .tela-card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s; }
-        .tela-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-        .tela-card .preview { height: 180px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 14px; border-bottom: 1px solid #eee; }
-        .tela-card .info { padding: 16px; }
-        .tela-card .info h4 { font-size: 15px; margin-bottom: 4px; }
-        .tela-card .info p { font-size: 12px; color: #888; margin: 0; }
-        .tela-card .info .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
-        .tag-professor { background: #e3f2fd; color: #1565c0; }
-        .tag-funcionario { background: #fce4ec; color: #c62828; }
-        .tag-coordenacao { background: #f3e5f5; color: #6a1b9a; }
-        .tag-todos { background: #e8f5e9; color: #2e7d32; }
-        @media (max-width: 768px) { .sidebar { width: 100%; position: static; } body { flex-direction: column; } }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+        .sidebar { width: 270px; background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; flex-shrink: 0; position: fixed; top: 0; left: 0; height: 100vh; z-index: 50; }
+        .sidebar-brand { padding: 24px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .sidebar-brand h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+        .sidebar-brand small { display: block; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.3); margin-top: 2px; }
+        .sidebar-section { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; padding: 20px 20px 8px; color: rgba(255,255,255,0.2); font-weight: 600; }
+        .sidebar nav { flex: 1; padding: 4px 12px; overflow-y: auto; }
+        .sidebar nav a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 8px; transition: all 0.15s; margin-bottom: 1px; cursor: pointer; }
+        .sidebar nav a:hover { background: #1e293b; color: rgba(255,255,255,0.9); }
+        .sidebar nav a.active { background: rgba(30,64,175,0.4); color: white; }
+        .sidebar-footer { padding: 16px 20px; font-size: 11px; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.25); }
+
+        .content { flex: 1; margin-left: 270px; padding: 32px 40px; }
+        .content h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.3px; }
+        .content p { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
+
+        .iframe-wrap { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; height: calc(100vh - 130px); }
+        .iframe-wrap iframe { width: 100%; height: 100%; border: none; }
+
+        .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); }
+        .placeholder .icon { width: 56px; height: 56px; background: #e2e8f0; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #64748b; }
+        .placeholder h3 { color: var(--text); font-size: 18px; margin-bottom: 6px; font-weight: 600; }
+        .placeholder p { font-size: 13px; }
+        .placeholder .divider { width: 40px; height: 2px; background: var(--border); margin: 16px 0; border: none; }
+
+        .inline-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .inline-icon svg { width: 16px; height: 16px; }
+
+        @media (max-width: 768px) { .sidebar { width: 100%; position: relative; height: auto; } .content { margin-left: 0; padding: 20px; } }
     </style>
 </head>
 <body>
     <nav class="sidebar">
-        <h1>GAC <small>Protótipos de Interface</small></h1>
-        <h2>Geral</h2>
-        <a href="#" class="active" onclick="showHome()">🏠 Início</a>
-        <a href="#" onclick="showFrame('login.html')">🔐 Login</a>
-        <h2>Professor</h2>
-        <a href="#" onclick="showFrame('dashboard-professor.html')">📊 Dashboard</a>
-        <a href="#" onclick="showFrame('solicitar-projetor.html')">📝 Solicitar Projetor</a>
-        <a href="#" onclick="showFrame('termo-responsabilidade.html')">📋 Termo de Resp.</a>
-        <a href="#" onclick="showFrame('minhas-solicitacoes.html')">📂 Minhas Solicitações</a>
-        <h2>Funcionário CCT</h2>
-        <a href="#" onclick="showFrame('dashboard-funcionario.html')">📊 Dashboard</a>
-        <a href="#" onclick="showFrame('consultar-disponibilidade.html')">🔍 Consultar Disponibilidade</a>
-        <a href="#" onclick="showFrame('registrar-retirada.html')">📤 Registrar Retirada</a>
-        <a href="#" onclick="showFrame('registrar-devolucao.html')">📥 Registrar Devolução</a>
-        <a href="#" onclick="showFrame('gerenciar-projetores.html')">🖥️ Gerenciar Projetores</a>
-        <a href="#" onclick="showFrame('gerenciar-usuarios.html')">👥 Gerenciar Usuários</a>
-        <h2>Coordenação</h2>
-        <a href="#" onclick="showFrame('dashboard-coordenacao.html')">📊 Dashboard</a>
-        <a href="#" onclick="showFrame('consultar-historico.html')">📈 Consultar Histórico</a>
+        <div class="sidebar-brand">
+            <h1>GAC</h1>
+            <small>Protótipos de Interface</small>
+        </div>
+        <div class="sidebar-section">Geral</div>
+        <nav>
+            <a href="#" class="active" onclick="showHome()">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Início
+            </a>
+            <a href="#" onclick="showFrame('login.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+                Login
+            </a>
+        </nav>
+        <div class="sidebar-section">Professor</div>
+        <nav>
+            <a href="#" onclick="showFrame('dashboard-professor.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Dashboard
+            </a>
+            <a href="#" onclick="showFrame('solicitar-projetor.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+                Solicitar Projetor
+            </a>
+            <a href="#" onclick="showFrame('termo-responsabilidade.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+                Termo de Resp.
+            </a>
+            <a href="#" onclick="showFrame('minhas-solicitacoes.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg></span>
+                Minhas Solicitações
+            </a>
+        </nav>
+        <div class="sidebar-section">Funcionário CCT</div>
+        <nav>
+            <a href="#" onclick="showFrame('dashboard-funcionario.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Dashboard
+            </a>
+            <a href="#" onclick="showFrame('consultar-disponibilidade.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></span>
+                Disponibilidade
+            </a>
+            <a href="#" onclick="showFrame('registrar-retirada.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg></span>
+                Registrar Retirada
+            </a>
+            <a href="#" onclick="showFrame('registrar-devolucao.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span>
+                Registrar Devolução
+            </a>
+            <a href="#" onclick="showFrame('gerenciar-projetores.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+                Projetores
+            </a>
+            <a href="#" onclick="showFrame('gerenciar-usuarios.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>
+                Usuários
+            </a>
+        </nav>
+        <div class="sidebar-section">Coordenação</div>
+        <nav>
+            <a href="#" onclick="showFrame('dashboard-coordenacao.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                Dashboard
+            </a>
+            <a href="#" onclick="showFrame('consultar-historico.html')">
+                <span class="inline-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></span>
+                Histórico
+            </a>
+        </nav>
+        <div class="sidebar-footer">Navegue pelas telas do protótipo</div>
     </nav>
     <main class="content" id="content">
         <div class="placeholder" id="homeView">
-            <div class="icon">📽️</div>
-            <h3>Protótipos do Sistema GAC</h3>
-            <p>Selecione uma tela no menu ao lado para visualizar o wireframe.</p>
-            <hr style="width: 60px; margin: 16px auto; border: none; border-top: 2px solid #ddd;">
-            <p style="font-size: 13px; color: #999;">Gerenciamento de Locação de Projetores — CCT</p>
+            <div class="icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            </div>
+            <h3>GAC — Protótipos</h3>
+            <p>Selecione uma tela no menu ao lado.</p>
+            <hr class="divider">
+            <p style="font-size:12px;color:#94a3b8;">Gerenciamento de Locação de Projetores — CCT</p>
         </div>
-        <div class="iframe-container" id="frameContainer" style="display:none;">
+        <div class="iframe-wrap" id="frameContainer" style="display:none;">
             <iframe id="telaFrame"></iframe>
         </div>
     </main>
