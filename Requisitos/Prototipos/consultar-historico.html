@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Consultar Histórico — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-coordenacao.html">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="consultar-historico.html" class="active">📈 Histórico</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Coordenação CCT<br><small>coord.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header><h1>📈 Consultar Histórico de Empréstimos</h1></header>
+        <div class="section">
+            <div class="filters">
+                <div class="form-group">
+                    <label>Data Início</label>
+                    <input type="date" value="2026-05-01">
+                </div>
+                <div class="form-group">
+                    <label>Data Fim</label>
+                    <input type="date" value="2026-06-09">
+                </div>
+                <div class="form-group">
+                    <label>Projetor</label>
+                    <select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Professor</label>
+                    <select><option>Todos</option><option>João Silva</option><option>Maria Souza</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select><option>Todos</option><option>Concluído</option><option>Em Andamento</option></select>
+                </div>
+                <button class="btn btn-primary small">Filtrar</button>
+                <button class="btn btn-outline small">Exportar PDF</button>
+            </div>
+            <table>
+                <tr><th>Data</th><th>Professor</th><th>Projetor</th><th>Retirada</th><th>Devolução</th><th>Status</th></tr>
+                <tr>
+                    <td>09/06/2026</td>
+                    <td>Maria Souza</td>
+                    <td>PROJ-005</td>
+                    <td>08:00</td>
+                    <td>10:00</td>
+                    <td><span class="status status-concluido">Concluído</span></td>
+                </tr>
+                <tr>
+                    <td>09/06/2026</td>
+                    <td>João Lima</td>
+                    <td>PROJ-012</td>
+                    <td>10:00</td>
+                    <td>—</td>
+                    <td><span class="status status-andamento">Em Andamento</span></td>
+                </tr>
+                <tr>
+                    <td>08/06/2026</td>
+                    <td>Ana Costa</td>
+                    <td>PROJ-003</td>
+                    <td>14:00</td>
+                    <td>16:00</td>
+                    <td><span class="status status-concluido">Concluído</span></td>
+                </tr>
+                <tr>
+                    <td>08/06/2026</td>
+                    <td>João Silva</td>
+                    <td>PROJ-001</td>
+                    <td>08:00</td>
+                    <td>10:00</td>
+                    <td><span class="status status-concluido">Concluído</span></td>
+                </tr>
+                <tr>
+                    <td>07/06/2026</td>
+                    <td>Maria Souza</td>
+                    <td>PROJ-007</td>
+                    <td>10:00</td>
+                    <td>12:00</td>
+                    <td><span class="status status-concluido">Concluído</span></td>
+                </tr>
+                <tr>
+                    <td>07/06/2026</td>
+                    <td>Roberto Lima</td>
+                    <td>PROJ-003</td>
+                    <td>15:00</td>
+                    <td>17:00</td>
+                    <td><span class="status status-concluido">Concluído</span></td>
+                </tr>
+            </table>
+            <p style="margin-top:12px; font-size:13px; color:#888;">Exibindo 6 de 47 registros no período.</p>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📈 Consultar Histórico — IU11</div>
+</body>
+</html>

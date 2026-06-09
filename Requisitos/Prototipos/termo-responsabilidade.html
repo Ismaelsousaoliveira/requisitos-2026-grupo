@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Termo de Responsabilidade — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-professor.html">📊 Dashboard</a>
+            <a href="solicitar-projetor.html" class="active">📝 Solicitar Projetor</a>
+            <a href="minhas-solicitacoes.html">📂 Minhas Solicitações</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Professor<br><small>joao.silva@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <div class="form-card">
+            <h2>📋 Termo de Responsabilidade</h2>
+            <p style="color:#666; margin-bottom:16px;">Solicitação: PROJ-003 | 15/06/2026 | 08:00-10:00</p>
+            <div class="termo-box">
+                <p><strong>TERMO DE RESPONSABILIDADE PELO USO DE PROJETOR</strong></p>
+                <br>
+                <p>Eu, <strong>João da Silva</strong>, professor do Centro de Ciências Tecnológicas (CCT), declaro que estou ciente e concordo com as seguintes condições:</p>
+                <br>
+                <p>1. Sou o responsável direto pelo equipamento <strong>PROJ-003 (Epson X51)</strong> a partir do momento da retirada até a devolução registrada no sistema.</p>
+                <p>2. Comprometo-me a utilizar o equipamento exclusivamente para fins acadêmicos.</p>
+                <p>3. Em caso de dano ou extravio, arcarei com as responsabilidades conforme regulamento do CCT.</p>
+                <p>4. Devolverei o equipamento no horário estipulado, evitando multas e restrições futuras.</p>
+                <p>5. O não cumprimento do prazo de devolução poderá resultar em suspensão do direito de novos empréstimos.</p>
+                <br>
+                <p>Este termo foi gerado eletronicamente em 09/06/2026 às 14:32.</p>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="aceite" checked>
+                <label for="aceite"><strong>Declaro que li e aceito os termos acima</strong></label>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="alert('Solicitação registrada com sucesso! Nº #2027'); location='minhas-solicitacoes.html'">Assinar e Confirmar</button>
+                <button class="btn btn-outline" onclick="history.back()">Voltar</button>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📋 Termo de Responsabilidade — IU04</div>
+</body>
+</html>

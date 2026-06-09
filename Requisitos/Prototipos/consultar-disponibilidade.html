@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Consultar Disponibilidade — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-funcionario.html">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html" class="active">🔍 Disponibilidade</a>
+            <a href="registrar-retirada.html">📤 Registrar Retirada</a>
+            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
+            <a href="gerenciar-projetores.html">🖥️ Projetores</a>
+            <a href="gerenciar-usuarios.html">👥 Usuários</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header><h1>🔍 Consultar Disponibilidade</h1></header>
+        <div class="section">
+            <div class="filters">
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" value="2026-06-15">
+                </div>
+                <div class="form-group">
+                    <label>Projetor</label>
+                    <select><option>Todos</option><option>PROJ-001</option><option>PROJ-003</option><option>PROJ-005</option></select>
+                </div>
+                <button class="btn btn-primary small">Filtrar</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Projetor</th>
+                    <th>08:00-10:00</th>
+                    <th>10:00-12:00</th>
+                    <th>13:00-15:00</th>
+                    <th>15:00-17:00</th>
+                    <th>17:00-19:00</th>
+                </tr>
+                <tr>
+                    <td><strong>PROJ-001</strong><br><small>Epson X51</small></td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                </tr>
+                <tr>
+                    <td><strong>PROJ-003</strong><br><small>BenQ MH535</small></td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
+                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                </tr>
+                <tr>
+                    <td><strong>PROJ-005</strong><br><small>Epson 2250U</small></td>
+                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
+                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
+                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
+                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
+                    <td style="background:#fff3e0;color:#e65100;">🔧 Manutenção</td>
+                </tr>
+                <tr>
+                    <td><strong>PROJ-007</strong><br><small>Sony VPL</small></td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#ffebee;color:#c62828;">❌ Ocupado</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                </tr>
+                <tr>
+                    <td><strong>PROJ-012</strong><br><small>Optoma HD</small></td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                    <td style="background:#e8f5e9;color:#2e7d32;">✅ Disponível</td>
+                </tr>
+            </table>
+            <p style="margin-top:12px; font-size:12px; color:#888;">
+                <span style="display:inline-block; width:12px; height:12px; background:#e8f5e9; border-radius:2px;"></span> Disponível &nbsp;
+                <span style="display:inline-block; width:12px; height:12px; background:#ffebee; border-radius:2px;"></span> Ocupado &nbsp;
+                <span style="display:inline-block; width:12px; height:12px; background:#fff3e0; border-radius:2px;"></span> Manutenção
+            </p>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">🔍 Consultar Disponibilidade — IU05</div>
+</body>
+</html>

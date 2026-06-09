@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Registrar Retirada — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-funcionario.html">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="registrar-retirada.html" class="active">📤 Registrar Retirada</a>
+            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
+            <a href="gerenciar-projetores.html">🖥️ Projetores</a>
+            <a href="gerenciar-usuarios.html">👥 Usuários</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <div class="form-card">
+            <h2>📤 Registrar Retirada</h2>
+            <div class="form-group">
+                <label>Buscar Solicitação</label>
+                <input type="text" placeholder="Nº da solicitação ou nome do professor..." value="2024">
+            </div>
+            <div style="background:#f5f5f5; border-radius:8px; padding:16px; margin-bottom:16px;">
+                <p><strong>Solicitação #2024</strong></p>
+                <table style="font-size:13px;">
+                    <tr><td>Professor:</td><td><strong>Maria Souza</strong></td></tr>
+                    <tr><td>Projetor:</td><td><strong>PROJ-005</strong> — Epson 2250U</td></tr>
+                    <tr><td>Data:</td><td>09/06/2026</td></tr>
+                    <tr><td>Horário:</td><td>08:00 — 10:00</td></tr>
+                    <tr><td>Finalidade:</td><td>Aula de Física III</td></tr>
+                    <tr><td>Status:</td><td><span class="status status-aprovado">Aprovada</span></td></tr>
+                </table>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="alert('Retirada registrada! Notificação enviada ao professor.'); location='dashboard-funcionario.html'">Confirmar Retirada</button>
+                <button class="btn btn-outline" onclick="history.back()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📤 Registrar Retirada — IU06</div>
+</body>
+</html>

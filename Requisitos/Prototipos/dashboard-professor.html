@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard — Professor</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header">
+            <div class="logo-icon">📽️</div>
+            <span>GAC</span>
+        </div>
+        <nav>
+            <a href="dashboard-professor.html" class="active">📊 Dashboard</a>
+            <a href="solicitar-projetor.html">📝 Solicitar Projetor</a>
+            <a href="minhas-solicitacoes.html">📂 Minhas Solicitações</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Professor<br><small>joao.silva@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header><h1>Dashboard</h1><span class="badge">Professor</span></header>
+        <div class="cards">
+            <div class="card" onclick="location='solicitar-projetor.html'">
+                <div class="card-icon">📝</div>
+                <div class="card-num">2</div>
+                <div class="card-label">Solicitações Ativas</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📥</div>
+                <div class="card-num">1</div>
+                <div class="card-label">Aguardando Retirada</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <div class="card-num">5</div>
+                <div class="card-label">Empréstimos Concluídos</div>
+            </div>
+            <div class="card" onclick="location='consultar-disponibilidade.html'">
+                <div class="card-icon">🔍</div>
+                <div class="card-num">8</div>
+                <div class="card-label">Projetores Disponíveis</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Próximas Solicitações</h2>
+            <table>
+                <tr><th>Data</th><th>Horário</th><th>Projetor</th><th>Status</th></tr>
+                <tr><td>10/06/2026</td><td>08:00-10:00</td><td>PROJ-003</td><td><span class="status status-pendente">Pendente</span></td></tr>
+                <tr><td>12/06/2026</td><td>14:00-16:00</td><td>PROJ-007</td><td><span class="status status-aprovado">Aprovado</span></td></tr>
+            </table>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📊 Dashboard Professor — IU02</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Solicitar Projetor — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-professor.html">📊 Dashboard</a>
+            <a href="solicitar-projetor.html" class="active">📝 Solicitar Projetor</a>
+            <a href="minhas-solicitacoes.html">📂 Minhas Solicitações</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Professor<br><small>joao.silva@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <div class="form-card">
+            <h2>📝 Solicitar Projetor</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Projetor</label>
+                    <select>
+                        <option>Qualquer disponível</option>
+                        <option>PROJ-001 — Epson X51</option>
+                        <option>PROJ-003 — BenQ MH535</option>
+                        <option>PROJ-005 — Epson 2250U</option>
+                        <option>PROJ-007 — Sony VPL-EX5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Data de Uso</label>
+                    <input type="date" value="2026-06-15">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Horário Início</label>
+                    <input type="time" value="08:00">
+                </div>
+                <div class="form-group">
+                    <label>Horário Fim</label>
+                    <input type="time" value="10:00">
+                </div>
+            </div>
+            <div class="form-group full">
+                <label>Finalidade</label>
+                <textarea placeholder="Descreva a finalidade do uso do projetor...">Aula de Cálculo II — Turma 2026.1</textarea>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="alert('Verificando disponibilidade...'); location='termo-responsabilidade.html'">Verificar Disponibilidade</button>
+                <button class="btn btn-outline" onclick="history.back()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📝 Solicitar Projetor — IU03</div>
+</body>
+</html>

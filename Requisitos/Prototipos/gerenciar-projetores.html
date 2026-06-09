@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gerenciar Projetores — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-funcionario.html">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="registrar-retirada.html">📤 Registrar Retirada</a>
+            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
+            <a href="gerenciar-projetores.html" class="active">🖥️ Projetores</a>
+            <a href="gerenciar-usuarios.html">👥 Usuários</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header>
+            <h1>🖥️ Gerenciar Projetores</h1>
+            <button class="btn btn-primary" onclick="alert('Abrir formulário de cadastro...')">+ Novo Projetor</button>
+        </header>
+        <div class="section">
+            <table>
+                <tr><th>Patrimônio</th><th>Marca</th><th>Modelo</th><th>Status</th><th>Aquisição</th><th>Ações</th></tr>
+                <tr>
+                    <td>PROJ-001</td>
+                    <td>Epson</td>
+                    <td>PowerLite X51</td>
+                    <td><span class="status status-aprovado">Disponível</span></td>
+                    <td>15/03/2024</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-002</td>
+                    <td>Epson</td>
+                    <td>PowerLite X51</td>
+                    <td><span class="status status-andamento">Emprestado</span></td>
+                    <td>15/03/2024</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-003</td>
+                    <td>BenQ</td>
+                    <td>MH535</td>
+                    <td><span class="status status-aprovado">Disponível</span></td>
+                    <td>10/07/2024</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-004</td>
+                    <td>BenQ</td>
+                    <td>MH535</td>
+                    <td><span class="status status-pendente">Manutenção</span></td>
+                    <td>10/07/2024</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-005</td>
+                    <td>Epson</td>
+                    <td>2250U</td>
+                    <td><span class="status status-aprovado">Disponível</span></td>
+                    <td>22/01/2025</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-007</td>
+                    <td>Sony</td>
+                    <td>VPL-EX5</td>
+                    <td><span class="status status-aprovado">Disponível</span></td>
+                    <td>05/05/2025</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PROJ-012</td>
+                    <td>Optoma</td>
+                    <td>HD146X</td>
+                    <td><span class="status status-aprovado">Disponível</span></td>
+                    <td>18/11/2025</td>
+                    <td>
+                        <button class="btn small btn-outline">✏️</button>
+                        <button class="btn small btn-outline" style="border-color:#c62828;color:#c62828;">🗑️</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-card">
+            <h3>Cadastrar Novo Projetor</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nº Patrimônio</label>
+                    <input type="text" placeholder="Ex: PROJ-013">
+                </div>
+                <div class="form-group">
+                    <label>Marca</label>
+                    <input type="text" placeholder="Ex: Epson, BenQ, Sony">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Modelo</label>
+                    <input type="text" placeholder="Ex: PowerLite X51">
+                </div>
+                <div class="form-group">
+                    <label>Data de Aquisição</label>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="alert('Projetor cadastrado com sucesso!');">Salvar</button>
+                <button class="btn btn-outline">Limpar</button>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">🖥️ Gerenciar Projetores — IU09</div>
+</body>
+</html>

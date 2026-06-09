@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAC — Protótipos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #333; display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; background: #1a237e; color: white; padding: 24px 0; flex-shrink: 0; }
+        .sidebar h1 { font-size: 18px; padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px; }
+        .sidebar h1 small { display: block; font-size: 12px; font-weight: 400; opacity: 0.7; margin-top: 4px; }
+        .sidebar h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 16px 20px 8px; opacity: 0.6; }
+        .sidebar a { display: block; padding: 10px 20px; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: all 0.2s; border-left: 3px solid transparent; }
+        .sidebar a:hover { background: rgba(255,255,255,0.1); color: white; border-left-color: #448aff; }
+        .sidebar a.active { background: rgba(255,255,255,0.15); color: white; border-left-color: #448aff; font-weight: 600; }
+        .content { flex: 1; padding: 32px; }
+        .content h2 { font-size: 24px; margin-bottom: 8px; }
+        .content p { color: #666; margin-bottom: 24px; }
+        .iframe-container { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; height: calc(100vh - 120px); }
+        .iframe-container iframe { width: 100%; height: 100%; border: none; }
+        .placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #999; }
+        .placeholder .icon { font-size: 64px; margin-bottom: 16px; }
+        .placeholder h3 { color: #333; margin-bottom: 8px; }
+        .tela-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .tela-card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s; }
+        .tela-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+        .tela-card .preview { height: 180px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 14px; border-bottom: 1px solid #eee; }
+        .tela-card .info { padding: 16px; }
+        .tela-card .info h4 { font-size: 15px; margin-bottom: 4px; }
+        .tela-card .info p { font-size: 12px; color: #888; margin: 0; }
+        .tela-card .info .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+        .tag-professor { background: #e3f2fd; color: #1565c0; }
+        .tag-funcionario { background: #fce4ec; color: #c62828; }
+        .tag-coordenacao { background: #f3e5f5; color: #6a1b9a; }
+        .tag-todos { background: #e8f5e9; color: #2e7d32; }
+        @media (max-width: 768px) { .sidebar { width: 100%; position: static; } body { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <h1>GAC <small>Protótipos de Interface</small></h1>
+        <h2>Geral</h2>
+        <a href="#" class="active" onclick="showHome()">🏠 Início</a>
+        <a href="#" onclick="showFrame('login.html')">🔐 Login</a>
+        <h2>Professor</h2>
+        <a href="#" onclick="showFrame('dashboard-professor.html')">📊 Dashboard</a>
+        <a href="#" onclick="showFrame('solicitar-projetor.html')">📝 Solicitar Projetor</a>
+        <a href="#" onclick="showFrame('termo-responsabilidade.html')">📋 Termo de Resp.</a>
+        <a href="#" onclick="showFrame('minhas-solicitacoes.html')">📂 Minhas Solicitações</a>
+        <h2>Funcionário CCT</h2>
+        <a href="#" onclick="showFrame('dashboard-funcionario.html')">📊 Dashboard</a>
+        <a href="#" onclick="showFrame('consultar-disponibilidade.html')">🔍 Consultar Disponibilidade</a>
+        <a href="#" onclick="showFrame('registrar-retirada.html')">📤 Registrar Retirada</a>
+        <a href="#" onclick="showFrame('registrar-devolucao.html')">📥 Registrar Devolução</a>
+        <a href="#" onclick="showFrame('gerenciar-projetores.html')">🖥️ Gerenciar Projetores</a>
+        <a href="#" onclick="showFrame('gerenciar-usuarios.html')">👥 Gerenciar Usuários</a>
+        <h2>Coordenação</h2>
+        <a href="#" onclick="showFrame('dashboard-coordenacao.html')">📊 Dashboard</a>
+        <a href="#" onclick="showFrame('consultar-historico.html')">📈 Consultar Histórico</a>
+    </nav>
+    <main class="content" id="content">
+        <div class="placeholder" id="homeView">
+            <div class="icon">📽️</div>
+            <h3>Protótipos do Sistema GAC</h3>
+            <p>Selecione uma tela no menu ao lado para visualizar o wireframe.</p>
+            <hr style="width: 60px; margin: 16px auto; border: none; border-top: 2px solid #ddd;">
+            <p style="font-size: 13px; color: #999;">Gerenciamento de Locação de Projetores — CCT</p>
+        </div>
+        <div class="iframe-container" id="frameContainer" style="display:none;">
+            <iframe id="telaFrame"></iframe>
+        </div>
+    </main>
+    <script>
+        function showHome() {
+            document.getElementById('homeView').style.display = 'flex';
+            document.getElementById('frameContainer').style.display = 'none';
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            document.querySelector('.sidebar a:first-child').classList.add('active');
+        }
+        function showFrame(url) {
+            document.getElementById('homeView').style.display = 'none';
+            document.getElementById('frameContainer').style.display = 'block';
+            document.getElementById('telaFrame').src = url;
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

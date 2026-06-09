@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gerenciar Usuários — GAC</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-funcionario.html">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="registrar-retirada.html">📤 Registrar Retirada</a>
+            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
+            <a href="gerenciar-projetores.html">🖥️ Projetores</a>
+            <a href="gerenciar-usuarios.html" class="active">👥 Usuários</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header>
+            <h1>👥 Gerenciar Usuários</h1>
+            <button class="btn btn-primary" onclick="alert('Abrir formulário de cadastro...')">+ Novo Usuário</button>
+        </header>
+        <div class="section">
+            <table>
+                <tr><th>Nome</th><th>E-mail</th><th>Tipo</th><th>Departamento</th><th>Status</th><th>Ações</th></tr>
+                <tr>
+                    <td>João Silva</td>
+                    <td>joao.silva@cct.edu</td>
+                    <td><span class="badge">Professor</span></td>
+                    <td>Matemática</td>
+                    <td><span class="status status-aprovado">Ativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+                <tr>
+                    <td>Maria Souza</td>
+                    <td>maria.souza@cct.edu</td>
+                    <td><span class="badge">Professor</span></td>
+                    <td>Física</td>
+                    <td><span class="status status-aprovado">Ativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+                <tr>
+                    <td>Carlos Pereira</td>
+                    <td>carlos.cct@cct.edu</td>
+                    <td><span class="badge badge-func">Funcionário</span></td>
+                    <td>CCT</td>
+                    <td><span class="status status-aprovado">Ativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+                <tr>
+                    <td>Ana Costa</td>
+                    <td>ana.costa@cct.edu</td>
+                    <td><span class="badge">Professor</span></td>
+                    <td>Computação</td>
+                    <td><span class="status status-aprovado">Ativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+                <tr>
+                    <td>Roberto Lima</td>
+                    <td>roberto.cct@cct.edu</td>
+                    <td><span class="badge badge-coord">Coordenação</span></td>
+                    <td>CCT</td>
+                    <td><span class="status status-aprovado">Ativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+                <tr>
+                    <td>Pedro Alves</td>
+                    <td>pedro.alves@cct.edu</td>
+                    <td><span class="badge">Professor</span></td>
+                    <td>Química</td>
+                    <td><span class="status status-concluido">Inativo</span></td>
+                    <td><button class="btn small btn-outline">✏️</button></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">👥 Gerenciar Usuários — IU10</div>
+</body>
+</html>

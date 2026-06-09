@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard — Funcionário CCT</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="app">
+    <aside class="menu">
+        <div class="menu-header"><div class="logo-icon">📽️</div><span>GAC</span></div>
+        <nav>
+            <a href="dashboard-funcionario.html" class="active">📊 Dashboard</a>
+            <a href="consultar-disponibilidade.html">🔍 Disponibilidade</a>
+            <a href="registrar-retirada.html">📤 Registrar Retirada</a>
+            <a href="registrar-devolucao.html">📥 Registrar Devolução</a>
+            <a href="gerenciar-projetores.html">🖥️ Projetores</a>
+            <a href="gerenciar-usuarios.html">👥 Usuários</a>
+            <a href="login.html" class="logout">🚪 Sair</a>
+        </nav>
+        <div class="menu-footer">Funcionário CCT<br><small>carlos.cct@cct.edu</small></div>
+    </aside>
+    <main class="main">
+        <header><h1>Dashboard</h1><span class="badge badge-func">Funcionário CCT</span></header>
+        <div class="cards">
+            <div class="card" onclick="location='registrar-retirada.html'"><div class="card-icon">⏳</div><div class="card-num">3</div><div class="card-label">Retiradas Pendentes</div></div>
+            <div class="card" onclick="location='registrar-devolucao.html'"><div class="card-icon">📤</div><div class="card-num">5</div><div class="card-label">Empréstimos Ativos</div></div>
+            <div class="card"><div class="card-icon">✅</div><div class="card-num">12</div><div class="card-label">Devoluções Hoje</div></div>
+            <div class="card"><div class="card-icon">🖥️</div><div class="card-num">15</div><div class="card-label">Total Projetores</div></div>
+        </div>
+        <div class="section">
+            <h2>Retiradas Pendentes</h2>
+            <table>
+                <tr><th>Solicitação</th><th>Professor</th><th>Projetor</th><th>Data</th><th>Ação</th></tr>
+                <tr><td>#2024</td><td>Maria Souza</td><td>PROJ-005</td><td>09/06</td><td><button class="btn small" onclick="location='registrar-retirada.html'">Retirar</button></td></tr>
+                <tr><td>#2025</td><td>João Lima</td><td>PROJ-012</td><td>09/06</td><td><button class="btn small" onclick="location='registrar-retirada.html'">Retirar</button></td></tr>
+                <tr><td>#2026</td><td>Ana Costa</td><td>PROJ-003</td><td>10/06</td><td><button class="btn small" onclick="location='registrar-retirada.html'">Retirar</button></td></tr>
+            </table>
+        </div>
+    </main>
+</div>
+<div class="wireframe-label">📊 Dashboard Funcionário CCT — IU02</div>
+</body>
+</html>
