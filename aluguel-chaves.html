@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aluguel de Chaves — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Aluguel de Chaves — Salas</h1><div class="page-desc">Gerencie a retirada e devolução de chaves de salas e laboratórios.</div></div><button class="btn btn-primary btn-sm" onclick="abrirForm()">+ Nova Retirada</button></header>
+<div class="metrics">
+  <div class="metric"><div class="metric-header"><div class="metric-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M5 12h14"/></svg></div></div><div class="metric-value">12</div><div class="metric-label">Retiradas Hoje</div></div>
+  <div class="metric"><div class="metric-header"><div class="metric-icon orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="metric-value">3</div><div class="metric-label">Chaves em Uso</div></div>
+  <div class="metric"><div class="metric-header"><div class="metric-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div></div><div class="metric-value">9</div><div class="metric-label">Devolvidas Hoje</div></div>
+  <div class="metric"><div class="metric-header"><div class="metric-icon purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div></div><div class="metric-value">8</div><div class="metric-label">Salas Disponíveis</div></div>
+</div>
+<div class="card" style="margin-bottom:24px;"><div class="card-hd"><h2>Chaves em Uso</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Sala</th><th>Solicitante</th><th>Retirada</th><th>Previsão Devolução</th><th>Finalidade</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>Sala 101</strong></td><td>Carlos Mendes</td><td>09/06 08:00</td><td>09/06 10:00</td><td>Aula de Física</td><td style="text-align:center;"><button class="btn btn-success btn-sm" onclick="devolver('Sala 101')">Devolver</button></td></tr>
+<tr><td><strong>Lab 03</strong></td><td>Fernanda Lima</td><td>09/06 10:00</td><td>09/06 12:00</td><td>Aula de Química</td><td style="text-align:center;"><button class="btn btn-success btn-sm" onclick="devolver('Lab 03')">Devolver</button></td></tr>
+<tr><td><strong>Sala 205</strong></td><td>Roberto Alves</td><td>09/06 14:00</td><td>09/06 16:00</td><td>Reunião</td><td style="text-align:center;"><button class="btn btn-success btn-sm" onclick="devolver('Sala 205')">Devolver</button></td></tr>
+</tbody></table></div></div></div>
+<div class="card"><div class="card-hd"><h2>Salas Cadastradas</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Sala</th><th>Tipo</th><th>Capacidade</th><th>Equipamentos</th><th>Status</th></tr></thead><tbody>
+<tr><td><strong>Sala 101</strong></td><td>Sala de Aula</td><td>40</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td></tr>
+<tr><td><strong>Sala 102</strong></td><td>Sala de Aula</td><td>30</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td></tr>
+<tr><td><strong>Lab 03</strong></td><td>Laboratório</td><td>25</td><td>Computadores, Projetor</td><td><span class="tag tag-blue">Em Uso</span></td></tr>
+<tr><td><strong>Sala 205</strong></td><td>Sala de Reunião</td><td>15</td><td>Projetor, TV</td><td><span class="tag tag-blue">Em Uso</span></td></tr>
+<tr><td><strong>Lab 05</strong></td><td>Laboratório</td><td>20</td><td>Computadores</td><td><span class="tag tag-green">Disponível</span></td></tr>
+<tr><td><strong>Sala 301</strong></td><td>Sala de Aula</td><td>50</td><td>Projetor, Caixa de Som</td><td><span class="tag tag-yellow">Manutenção</span></td></tr>
+<tr><td><strong>Auditório</strong></td><td>Auditório</td><td>150</td><td>Projetor, Som, Ar cond.</td><td><span class="tag tag-green">Disponível</span></td></tr>
+<tr><td><strong>Sala 104</strong></td><td>Sala de Aula</td><td>35</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td></tr>
+</tbody></table></div></div></div>
+
+<div class="overlay" id="overlay" onclick="fecharForm()"></div>
+<div class="modal" id="modal"><div class="modal-hd"><h2>Registrar Retirada de Chave</h2><button class="btn btn-ghost btn-sm" onclick="fecharForm()">✕</button></div><div class="modal-bd">
+  <div class="form-row"><div class="form-group"><label>Sala</label><select><option>Sala 101</option><option>Sala 102</option><option>Lab 03</option><option>Sala 205</option><option>Lab 05</option><option>Auditório</option><option>Sala 104</option></select></div><div class="form-group"><label>Solicitante</label><input type="text" placeholder="Nome do solicitante"></div></div>
+  <div class="form-row"><div class="form-group"><label>Data Retirada</label><input type="date"></div><div class="form-group"><label>Horário</label><input type="time"></div></div>
+  <div class="form-row"><div class="form-group"><label>Previsão Devolução (data)</label><input type="date"></div><div class="form-group"><label>Previsão (horário)</label><input type="time"></div></div>
+  <div class="form-group"><label>Finalidade</label><input type="text" placeholder="Ex: Aula, Reunião, Evento"></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="alert('Retirada registrada! Chave liberada.');fecharForm()">Registrar Retirada</button><button class="btn btn-outline" onclick="fecharForm()">Cancelar</button></div>
+</div></div>
+
+<script>
+function abrirForm(){document.getElementById('overlay').style.display='block';document.getElementById('modal').style.display='block'}
+function fecharForm(){document.getElementById('overlay').style.display='none';document.getElementById('modal').style.display='none'}
+function devolver(sala){if(confirm('Devolver chave da '+sala+'?'))alert('Devolução registrada! Chave da '+sala+' disponível.')}
+</script>
+<style>
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100}
+.modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15);width:520px;max-width:90vw;z-index:101}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h2{font-size:16px;font-weight:700}
+.modal-bd{padding:20px 24px}
+</style>
+</body>
+</html>

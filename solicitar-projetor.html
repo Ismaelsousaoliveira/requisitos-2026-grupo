@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Solicitar Projetor — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Solicitar Projetor</h1><div class="page-desc">Preencha os dados para solicitar um projetor.</div></div><span class="badge badge-prof">Professor</span></header>
+<div class="form-card">
+  <div class="form-row">
+    <div class="form-group"><label>Projetor</label><select><option>Qualquer disponível</option><option>PROJ-001 — Epson X51</option><option>PROJ-003 — BenQ MH535</option><option>PROJ-005 — Epson 2250U</option><option>PROJ-007 — Sony VPL-EX5</option></select></div>
+    <div class="form-group"><label>Data de Uso</label><input type="date" value="2026-06-15"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Horário Início</label><input type="time" value="08:00"></div>
+    <div class="form-group"><label>Horário Fim</label><input type="time" value="10:00"></div>
+  </div>
+  <div class="form-group full"><label>Finalidade</label><textarea placeholder="Descreva a finalidade do uso do projetor...">Aula de Cálculo II — Turma 2026.1</textarea></div>
+  <div class="btn-group"><button class="btn btn-primary" onclick="alert('Verificando disponibilidade...');location='termo-responsabilidade.html'">Verificar Disponibilidade</button><button class="btn btn-outline">Cancelar</button></div>
+</div>
+</body>
+</html>

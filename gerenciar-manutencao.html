@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Manutenção — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Manutenção de Equipamentos</h1><div class="page-desc">Gerencie as manutenções dos projetores do CCT.</div></div><button class="btn btn-primary btn-sm" onclick="abrirForm()">+ Nova Manutenção</button></header>
+<div class="card" style="margin-bottom:24px;"><div class="card-hd"><h2>Manutenções em Andamento</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Equipamento</th><th>Defeito</th><th>Entrada</th><th>Previsão</th><th>Responsável</th><th>Custo</th><th>Status</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>PROJ-004</strong><br><span style="font-size:12px;color:var(--text-muted);">BenQ MH535</span></td><td>Lâmpada queimada</td><td>05/06/2026</td><td>12/06/2026</td><td>Assistência Técnica</td><td>R$ 450,00</td><td><span class="tag tag-yellow">Em Reparo</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="concluir()">Concluir</button></td></tr>
+<tr><td><strong>PROJ-005</strong><br><span style="font-size:12px;color:var(--text-muted);">Epson 2250U</span></td><td>Superaquecimento</td><td>08/06/2026</td><td>15/06/2026</td><td>Técnico Interno</td><td>—</td><td><span class="tag tag-orange">Aguardando Peça</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="concluir()">Concluir</button></td></tr>
+<tr><td><strong>PROJ-001</strong><br><span style="font-size:12px;color:var(--text-muted);">Epson X51</span></td><td>Botão liga desgastado</td><td>10/06/2026</td><td>17/06/2026</td><td>Técnico Interno</td><td>R$ 85,00</td><td><span class="tag tag-yellow">Em Reparo</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="concluir()">Concluir</button></td></tr>
+</tbody></table></div></div></div>
+<div class="card"><div class="card-hd"><h2>Histórico de Manutenções</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Equipamento</th><th>Defeito</th><th>Período</th><th>Custo</th><th>Responsável</th><th>Status</th></tr></thead><tbody>
+<tr><td><strong>PROJ-003</strong></td><td>Ventoinha com ruído</td><td>20/05 — 25/05/2026</td><td>R$ 120,00</td><td>Assistência Técnica</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td><strong>PROJ-007</strong></td><td>Problema de foco</td><td>10/05 — 14/05/2026</td><td>R$ 200,00</td><td>Assistência Técnica</td><td><span class="tag tag-green">Concluído</span></td></tr>
+<tr><td><strong>PROJ-002</strong></td><td>Troca de lâmpada</td><td>01/05 — 03/05/2026</td><td>R$ 380,00</td><td>Assistência Técnica</td><td><span class="tag tag-green">Concluído</span></td></tr>
+</tbody></table></div></div></div>
+
+<div class="overlay" id="overlay" onclick="fecharForm()"></div>
+<div class="modal" id="modal"><div class="modal-hd"><h2>Registrar Manutenção</h2><button class="btn btn-ghost btn-sm" onclick="fecharForm()">✕</button></div><div class="modal-bd">
+  <div class="form-row"><div class="form-group"><label>Equipamento</label><select><option>PROJ-001 — Epson X51</option><option>PROJ-003 — BenQ MH535</option><option>PROJ-004 — BenQ MH535</option><option>PROJ-005 — Epson 2250U</option><option>PROJ-007 — Sony VPL-EX5</option><option>PROJ-012 — Optoma HD146X</option></select></div><div class="form-group"><label>Data Entrada</label><input type="date"></div></div>
+  <div class="form-group"><label>Descrição do Defeito</label><textarea placeholder="Descreva o problema apresentado..."></textarea></div>
+  <div class="form-row"><div class="form-group"><label>Responsável</label><input type="text" placeholder="Ex: Assistência Técnica, Técnico Interno"></div><div class="form-group"><label>Custo Estimado</label><input type="text" placeholder="R$"></div></div>
+  <div class="form-row"><div class="form-group"><label>Previsão de Conclusão</label><input type="date"></div><div class="form-group"><label>Status</label><select><option>Em Reparo</option><option>Aguardando Peça</option><option>Aguardando Orçamento</option></select></div></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="alert('Manutenção registrada!');fecharForm()">Salvar</button><button class="btn btn-outline" onclick="fecharForm()">Cancelar</button></div>
+</div></div>
+
+<script>
+function abrirForm(){document.getElementById('overlay').style.display='block';document.getElementById('modal').style.display='block'}
+function fecharForm(){document.getElementById('overlay').style.display='none';document.getElementById('modal').style.display='none'}
+function concluir(){if(confirm('Concluir esta manutenção?'))alert('Manutenção concluída! Equipamento disponível novamente.')}
+</script>
+<style>
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100}
+.modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15);width:520px;max-width:90vw;z-index:101}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h2{font-size:16px;font-weight:700}
+.modal-bd{padding:20px 24px}
+</style>
+</body>
+</html>

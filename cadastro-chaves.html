@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Chaves — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Cadastro de Chaves</h1><div class="page-desc">Gerencie as chaves de salas e laboratórios do CCT.</div></div><button class="btn btn-primary btn-sm" onclick="abrirForm()">+ Nova Chave</button></header>
+<div class="card" style="margin-bottom:24px;"><div class="card-hd"><h2>Chaves Cadastradas</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Código</th><th>Sala</th><th>Tipo</th><th>Capacidade</th><th>Equipamentos</th><th>Status</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>CHV-001</strong></td><td>Sala 101</td><td>Sala de Aula</td><td>40</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-001','Sala 101','Sala de Aula','40','Projetor, Quadro')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-001')">Excluir</button></td></tr>
+<tr><td><strong>CHV-002</strong></td><td>Sala 102</td><td>Sala de Aula</td><td>30</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-002','Sala 102','Sala de Aula','30','Projetor, Quadro')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-002')">Excluir</button></td></tr>
+<tr><td><strong>CHV-003</strong></td><td>Lab 03</td><td>Laboratório</td><td>25</td><td>Computadores, Projetor</td><td><span class="tag tag-blue">Em Uso</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-003','Lab 03','Laboratório','25','Computadores, Projetor')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-003')">Excluir</button></td></tr>
+<tr><td><strong>CHV-004</strong></td><td>Sala 205</td><td>Sala de Reunião</td><td>15</td><td>Projetor, TV</td><td><span class="tag tag-blue">Em Uso</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-004','Sala 205','Sala de Reunião','15','Projetor, TV')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-004')">Excluir</button></td></tr>
+<tr><td><strong>CHV-005</strong></td><td>Lab 05</td><td>Laboratório</td><td>20</td><td>Computadores</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-005','Lab 05','Laboratório','20','Computadores')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-005')">Excluir</button></td></tr>
+<tr><td><strong>CHV-006</strong></td><td>Sala 301</td><td>Sala de Aula</td><td>50</td><td>Projetor, Caixa de Som</td><td><span class="tag tag-yellow">Manutenção</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-006','Sala 301','Sala de Aula','50','Projetor, Caixa de Som')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-006')">Excluir</button></td></tr>
+<tr><td><strong>CHV-007</strong></td><td>Auditório</td><td>Auditório</td><td>150</td><td>Projetor, Som, Ar cond.</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-007','Auditório','Auditório','150','Projetor, Som, Ar cond.')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-007')">Excluir</button></td></tr>
+<tr><td><strong>CHV-008</strong></td><td>Sala 104</td><td>Sala de Aula</td><td>35</td><td>Projetor, Quadro</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CHV-008','Sala 104','Sala de Aula','35','Projetor, Quadro')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CHV-008')">Excluir</button></td></tr>
+</tbody></table></div></div></div>
+
+<div class="overlay" id="overlay" onclick="fecharForm()"></div>
+<div class="modal" id="modal"><div class="modal-hd"><h2 id="modalTitle">Nova Chave</h2><button class="btn btn-ghost btn-sm" onclick="fecharForm()">✕</button></div><div class="modal-bd">
+  <div class="form-row"><div class="form-group"><label>Código da Chave</label><input type="text" id="fCodigo" placeholder="Ex: CHV-009"></div><div class="form-group"><label>Nome da Sala</label><input type="text" id="fSala" placeholder="Ex: Sala 401"></div></div>
+  <div class="form-row"><div class="form-group"><label>Tipo</label><select id="fTipo"><option>Sala de Aula</option><option>Laboratório</option><option>Auditório</option><option>Sala de Reunião</option></select></div><div class="form-group"><label>Capacidade</label><input type="number" id="fCapacidade" placeholder="Ex: 40"></div></div>
+  <div class="form-group"><label>Equipamentos</label><input type="text" id="fEquipamentos" placeholder="Ex: Projetor, Quadro, Computadores, Som"></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="salvar()">Salvar</button><button class="btn btn-outline" onclick="fecharForm()">Cancelar</button></div>
+</div></div>
+
+<script>
+var editando = false;
+function abrirForm(edit,cod,sala,tipo,cap,equip){
+  editando=!!edit;document.getElementById('modalTitle').textContent=edit?'Editar Chave':'Nova Chave';
+  document.getElementById('fCodigo').value=cod||'';document.getElementById('fSala').value=sala||'';
+  document.getElementById('fTipo').value=tipo||'Sala de Aula';document.getElementById('fCapacidade').value=cap||'';
+  document.getElementById('fEquipamentos').value=equip||'';
+  document.getElementById('overlay').style.display='block';document.getElementById('modal').style.display='block';
+}
+function editar(c,s,t,cap,e){abrirForm(true,c,s,t,cap,e)}
+function fecharForm(){document.getElementById('overlay').style.display='none';document.getElementById('modal').style.display='none'}
+function salvar(){alert(editando?'Chave editada com sucesso!':'Chave cadastrada com sucesso!');fecharForm()}
+function excluir(c){if(confirm('Excluir chave '+c+'?'))alert('Chave '+c+' excluída!')}
+</script>
+<style>
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100}
+.modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15);width:520px;max-width:90vw;z-index:101}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h2{font-size:16px;font-weight:700}
+.modal-bd{padding:20px 24px}
+</style>
+</body>
+</html>

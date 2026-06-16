@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cabos — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Cadastro de Cabos e Acessórios</h1><div class="page-desc">Gerencie os cabos e acessórios vinculados aos projetores.</div></div><button class="btn btn-primary btn-sm" onclick="abrirForm()">+ Novo Cabo</button></header>
+<div class="card" style="margin-bottom:24px;"><div class="card-hd"><h2>Cabos Cadastrados</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Código</th><th>Tipo</th><th>Especificação</th><th>Projetor Vinculado</th><th>Qtd. Estoque</th><th>Status</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>CAB-001</strong></td><td>Cabo HDMI</td><td>HDMI 2.0 — 3m</td><td>PROJ-001, PROJ-003, PROJ-005, PROJ-007, PROJ-012</td><td>8</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-001','Cabo HDMI','HDMI 2.0 — 3m','PROJ-001, PROJ-003, PROJ-005, PROJ-007, PROJ-012','8')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-001')">Excluir</button></td></tr>
+<tr><td><strong>CAB-002</strong></td><td>Cabo VGA</td><td>VGA — 1,8m</td><td>PROJ-003</td><td>3</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-002','Cabo VGA','VGA — 1,8m','PROJ-003','3')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-002')">Excluir</button></td></tr>
+<tr><td><strong>CAB-003</strong></td><td>Controle Remoto</td><td>Universal — Pilhas inclusas</td><td>Todos os projetores</td><td>10</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-003','Controle Remoto','Universal — Pilhas inclusas','Todos os projetores','10')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-003')">Excluir</button></td></tr>
+<tr><td><strong>CAB-004</strong></td><td>Estojo</td><td>Estojo protetor — Nylon</td><td>PROJ-003</td><td>2</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-004','Estojo','Estojo protetor — Nylon','PROJ-003','2')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-004')">Excluir</button></td></tr>
+<tr><td><strong>CAB-005</strong></td><td>Maleta</td><td>Maleta transporte — ABS</td><td>PROJ-005</td><td>1</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-005','Maleta','Maleta transporte — ABS','PROJ-005','1')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-005')">Excluir</button></td></tr>
+<tr><td><strong>CAB-006</strong></td><td>Adaptador</td><td>HDMI → VGA</td><td>PROJ-012</td><td>4</td><td><span class="tag tag-yellow">Emprestado</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-006','Adaptador','HDMI → VGA','PROJ-012','4')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-006')">Excluir</button></td></tr>
+<tr><td><strong>CAB-007</strong></td><td>Cabo de Força</td><td>Cabo de alimentação — 2m</td><td>Todos os projetores</td><td>12</td><td><span class="tag tag-green">Disponível</span></td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="editar('CAB-007','Cabo de Força','Cabo de alimentação — 2m','Todos os projetores','12')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="excluir('CAB-007')">Excluir</button></td></tr>
+</tbody></table></div></div></div>
+
+<div class="overlay" id="overlay" onclick="fecharForm()"></div>
+<div class="modal" id="modal"><div class="modal-hd"><h2 id="modalTitle">Novo Cabo / Acessório</h2><button class="btn btn-ghost btn-sm" onclick="fecharForm()">✕</button></div><div class="modal-bd">
+  <div class="form-row"><div class="form-group"><label>Código</label><input type="text" id="fCodigo" placeholder="Ex: CAB-008"></div><div class="form-group"><label>Tipo</label><select id="fTipo"><option>Cabo HDMI</option><option>Cabo VGA</option><option>Cabo de Força</option><option>Controle Remoto</option><option>Estojo</option><option>Maleta</option><option>Adaptador</option><option>Outro</option></select></div></div>
+  <div class="form-group"><label>Especificação</label><input type="text" id="fEspec" placeholder="Ex: HDMI 2.0 — 3m"></div>
+  <div class="form-row"><div class="form-group"><label>Projetores Vinculados</label><input type="text" id="fProj" placeholder="Ex: PROJ-001, PROJ-003"></div><div class="form-group"><label>Qtd. Estoque</label><input type="number" id="fQtd" placeholder="Ex: 5"></div></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="salvar()">Salvar</button><button class="btn btn-outline" onclick="fecharForm()">Cancelar</button></div>
+</div></div>
+
+<script>
+var editando=false;
+function abrirForm(edit,cod,tipo,esp,proj,qtd){
+  editando=!!edit;document.getElementById('modalTitle').textContent=edit?'Editar Cabo':'Novo Cabo / Acessório';
+  document.getElementById('fCodigo').value=cod||'';document.getElementById('fTipo').value=tipo||'Cabo HDMI';
+  document.getElementById('fEspec').value=esp||'';document.getElementById('fProj').value=proj||'';
+  document.getElementById('fQtd').value=qtd||'';
+  document.getElementById('overlay').style.display='block';document.getElementById('modal').style.display='block';
+}
+function editar(c,t,esp,p,q){abrirForm(true,c,t,esp,p,q)}
+function fecharForm(){document.getElementById('overlay').style.display='none';document.getElementById('modal').style.display='none'}
+function salvar(){alert(editando?'Cabo editado com sucesso!':'Cabo cadastrado com sucesso!');fecharForm()}
+function excluir(c){if(confirm('Excluir '+c+'?'))alert(c+' excluído!')}
+</script>
+<style>
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100}
+.modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15);width:520px;max-width:90vw;z-index:101}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h2{font-size:16px;font-weight:700}
+.modal-bd{padding:20px 24px}
+</style>
+</body>
+</html>

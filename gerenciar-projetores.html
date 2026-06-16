@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Projetores — GAC</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>Projetores</h1><div class="page-desc">Gerencie o cadastro de projetores do CCT.</div></div><button class="btn btn-primary btn-sm" onclick="abrirForm()">+ Novo Projetor</button></header>
+<div class="card"><div class="card-hd"><h2>Projetores Cadastrados</h2></div><div class="card-bd"><div class="table-wrap"><table><thead><tr><th>Patrimônio</th><th>Marca</th><th>Modelo</th><th>Acessórios</th><th>Status</th><th>Aquisição</th><th style="text-align:center;">Ações</th></tr></thead><tbody>
+<tr><td><strong>PROJ-001</strong></td><td>Epson</td><td>PowerLite X51</td><td>Cabo HDMI, Controle</td><td><span class="tag tag-green">Disponível</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-001','Epson','PowerLite X51','Cabo HDMI, Controle','15/03/2024')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-001')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-002</strong></td><td>Epson</td><td>PowerLite X51</td><td>Cabo HDMI, Controle</td><td><span class="tag tag-blue">Emprestado</span></td><td>15/03/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-002','Epson','PowerLite X51','Cabo HDMI, Controle','15/03/2024')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-002')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-003</strong></td><td>BenQ</td><td>MH535</td><td>Cabo VGA, Controle, Estojo</td><td><span class="tag tag-green">Disponível</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-003','BenQ','MH535','Cabo VGA, Controle, Estojo','10/07/2024')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-003')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-004</strong></td><td>BenQ</td><td>MH535</td><td>Cabo HDMI, Controle</td><td><span class="tag tag-yellow">Manutenção</span></td><td>10/07/2024</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-004','BenQ','MH535','Cabo HDMI, Controle','10/07/2024')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-004')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-005</strong></td><td>Epson</td><td>2250U</td><td>Cabo HDMI, Controle, Maleta</td><td><span class="tag tag-green">Disponível</span></td><td>22/01/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-005','Epson','2250U','Cabo HDMI, Controle, Maleta','22/01/2025')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-005')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-007</strong></td><td>Sony</td><td>VPL-EX5</td><td>Cabo HDMI, Controle</td><td><span class="tag tag-green">Disponível</span></td><td>05/05/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-007','Sony','VPL-EX5','Cabo HDMI, Controle','05/05/2025')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-007')">Excluir</button></td></tr>
+<tr><td><strong>PROJ-012</strong></td><td>Optoma</td><td>HD146X</td><td>Cabo HDMI, Controle, Adaptador</td><td><span class="tag tag-green">Disponível</span></td><td>18/11/2025</td><td style="text-align:center;"><button class="btn btn-ghost btn-sm" onclick="abrirForm(true,'PROJ-012','Optoma','HD146X','Cabo HDMI, Controle, Adaptador','18/11/2025')">Editar</button><button class="btn btn-ghost btn-sm" style="color:#b91c1c;" onclick="confirmarExcluir('PROJ-012')">Excluir</button></td></tr>
+</tbody></table></div></div></div>
+
+<div class="overlay" id="overlay" onclick="fecharForm()"></div>
+<div class="modal" id="modal"><div class="modal-hd"><h2 id="modalTitle">Cadastrar Projetor</h2><button class="btn btn-ghost btn-sm" onclick="fecharForm()">✕</button></div><div class="modal-bd">
+  <div class="form-row"><div class="form-group"><label>Nº Patrimônio</label><input type="text" id="fPatrimonio" placeholder="Ex: PROJ-013"></div><div class="form-group"><label>Marca</label><input type="text" id="fMarca" placeholder="Ex: Epson, BenQ"></div></div>
+  <div class="form-row"><div class="form-group"><label>Modelo</label><input type="text" id="fModelo" placeholder="Ex: PowerLite X51"></div><div class="form-group"><label>Data de Aquisição</label><input type="date" id="fData"></div></div>
+  <div class="form-group"><label>Acessórios</label><input type="text" id="fAcessorios" placeholder="Ex: Cabo HDMI, Controle, Estojo, Maleta, Adaptador"></div>
+  <div class="btn-group"><button class="btn btn-success" onclick="salvarProjetor()">Salvar</button><button class="btn btn-outline" onclick="fecharForm()">Cancelar</button></div>
+</div></div>
+
+<script>
+var editando = false;
+function abrirForm(edit,pat,marca,modelo,acessorios,data){
+  editando = !!edit;
+  document.getElementById('modalTitle').textContent = edit ? 'Editar Projetor' : 'Cadastrar Projetor';
+  document.getElementById('fPatrimonio').value = pat || '';
+  document.getElementById('fMarca').value = marca || '';
+  document.getElementById('fModelo').value = modelo || '';
+  document.getElementById('fAcessorios').value = acessorios || '';
+  document.getElementById('fData').value = data || '';
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('modal').style.display = 'block';
+}
+function fecharForm(){
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
+}
+function salvarProjetor(){
+  var msg = editando ? 'Projetor editado com sucesso!' : 'Projetor cadastrado com sucesso!';
+  alert(msg); fecharForm();
+}
+function confirmarExcluir(pat){
+  if(confirm('Deseja realmente excluir o projetor '+pat+'?')) alert('Projetor '+pat+' excluído!');
+}
+</script>
+<style>
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100}
+.modal{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.15);width:520px;max-width:90vw;z-index:101}
+.modal-hd{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h2{font-size:16px;font-weight:700}
+.modal-bd{padding:20px 24px}
+</style>
+</body>
+</html>

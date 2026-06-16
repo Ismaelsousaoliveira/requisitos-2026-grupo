@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Relatórios — GAC</title><link rel="stylesheet" href="style.css">
+<style>
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.chart-card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);padding:24px}
+.chart-card h3{font-size:14px;font-weight:600;margin-bottom:16px;color:var(--text)}
+.chart-card .chart-desc{font-size:11px;color:var(--text-muted);margin-top:12px;text-align:center}
+.bar-chart{display:flex;align-items:end;gap:8px;height:160px;padding:0 4px}
+.bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:end}
+.bar{width:100%;border-radius:4px 4px 0 0;min-height:4px;transition:.3s;position:relative}
+.bar-val{font-size:10px;font-weight:700;color:var(--text);margin-bottom:4px}
+.bar-lbl{font-size:10px;color:var(--text-muted);margin-top:6px;text-align:center;white-space:nowrap}
+.lg{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.lg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary)}
+.lg-dot{width:10px;height:10px;border-radius:3px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{text-align:center;padding:16px;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border)}
+.stat-val{font-size:24px;font-weight:700;color:var(--primary)}
+.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+.pizza{display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 0}
+.pizza-svg{flex-shrink:0}
+.pizza-legend{font-size:13px;line-height:2;color:var(--text-secondary)}
+.month-nav{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.month-nav span{font-size:13px;font-weight:600;color:var(--text)}
+</style></head>
+<body>
+<header><div><h1>Relatórios e Indicadores</h1><div class="page-desc">Acompanhe métricas e tendências do GAC.</div></div><span class="badge badge-coord">Gestor</span></header>
+
+<div class="month-nav"><button class="btn btn-ghost btn-sm">◀</button><span>Junho 2026</span><button class="btn btn-ghost btn-sm">▶</button></div>
+
+<div class="stat-grid">
+  <div class="stat"><div class="stat-val">47</div><div class="stat-lbl">Empréstimos (mês)</div></div>
+  <div class="stat"><div class="stat-val">43</div><div class="stat-lbl">Devoluções (mês)</div></div>
+  <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">Em Manutenção</div></div>
+  <div class="stat"><div class="stat-val">92%</div><div class="stat-lbl">Taxa de Ocupação</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-card">
+    <h3>Empréstimos por Dia — Junho 2026</h3>
+    <div class="bar-chart">
+      <div class="bar-wrap"><div class="bar" style="height:80%;background:var(--primary)"></div><div class="bar-val">8</div><div class="bar-lbl">02/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:50%;background:var(--primary)"></div><div class="bar-val">5</div><div class="bar-lbl">03/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:90%;background:var(--primary)"></div><div class="bar-val">9</div><div class="bar-lbl">04/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:40%;background:var(--primary)"></div><div class="bar-val">4</div><div class="bar-lbl">05/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:70%;background:var(--primary)"></div><div class="bar-val">7</div><div class="bar-lbl">06/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:30%;background:var(--primary)"></div><div class="bar-val">3</div><div class="bar-lbl">07/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:100%;background:var(--primary)"></div><div class="bar-val">10</div><div class="bar-lbl">08/06</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:60%;background:var(--primary)"></div><div class="bar-val">6</div><div class="bar-lbl">09/06</div></div>
+    </div>
+    <div class="chart-desc">Total no período: 47 empréstimos | Média: 5,9/dia</div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Projetores Mais Utilizados</h3>
+    <div class="bar-chart">
+      <div class="bar-wrap"><div class="bar" style="height:100%;background:#16a34a"></div><div class="bar-val">12</div><div class="bar-lbl">PROJ-003</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:75%;background:#16a34a"></div><div class="bar-val">9</div><div class="bar-lbl">PROJ-001</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:65%;background:#16a34a"></div><div class="bar-val">8</div><div class="bar-lbl">PROJ-007</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:50%;background:#16a34a"></div><div class="bar-val">6</div><div class="bar-lbl">PROJ-005</div></div>
+      <div class="bar-wrap"><div class="bar" style="height:40%;background:#16a34a"></div><div class="bar-val">5</div><div class="bar-lbl">PROJ-012</div></div>
+    </div>
+    <div class="chart-desc">BenQ MH535 (PROJ-003) líder com 12 empréstimos</div>
+  </div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-card">
+    <h3>Status dos Projetores</h3>
+    <div class="pizza">
+      <svg class="pizza-svg" width="140" height="140" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="65 100" stroke-dashoffset="0" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="20 100" stroke-dashoffset="-65" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#ea580c" stroke-width="3" stroke-dasharray="10 100" stroke-dashoffset="-85" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5 100" stroke-dashoffset="-95" transform="rotate(-90 18 18)"/>
+      </svg>
+      <div class="pizza-legend">
+        <div><span class="lg-dot" style="display:inline-block;background:#16a34a"></span> Disponível: 9</div>
+        <div><span class="lg-dot" style="display:inline-block;background:#2563eb"></span> Emprestado: 3</div>
+        <div><span class="lg-dot" style="display:inline-block;background:#ea580c"></span> Manutenção: 2</div>
+        <div><span class="lg-dot" style="display:inline-block;background:#94a3b8"></span> Inativo: 1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Chaves de Salas — Hoje</h3>
+    <div class="pizza">
+      <svg class="pizza-svg" width="140" height="140" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="55 100" stroke-dashoffset="0" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="20 100" stroke-dashoffset="-55" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="25 100" stroke-dashoffset="-75" transform="rotate(-90 18 18)"/>
+      </svg>
+      <div class="pizza-legend">
+        <div><span class="lg-dot" style="display:inline-block;background:#16a34a"></span> Devolvidas: 9</div>
+        <div><span class="lg-dot" style="display:inline-block;background:#2563eb"></span> Em Uso: 3</div>
+        <div><span class="lg-dot" style="display:inline-block;background:#f59e0b"></span> Agendadas: 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card"><div class="card-hd"><h2>Manutenções — Custo por Equipamento (últimos 30 dias)</h2></div><div class="card-bd">
+  <div class="table-wrap"><table><thead><tr><th>Equipamento</th><th>Defeito</th><th>Período</th><th>Custo</th><th style="text-align:right;">% do Total</th></tr></thead><tbody>
+    <tr><td><strong>PROJ-003</strong> — BenQ MH535</td><td>Ventoinha com ruído</td><td>20/05 — 25/05</td><td>R$ 120,00</td><td style="text-align:right;">35%</td></tr>
+    <tr><td><strong>PROJ-007</strong> — Sony VPL-EX5</td><td>Problema de foco</td><td>10/05 — 14/05</td><td>R$ 200,00</td><td style="text-align:right;">40%</td></tr>
+    <tr><td><strong>PROJ-002</strong> — Epson X51</td><td>Troca de lâmpada</td><td>01/05 — 03/05</td><td>R$ 380,00</td><td style="text-align:right;">25%</td></tr>
+  </tbody></table></div>
+  <div style="margin-top:12px;display:flex;gap:24px;font-size:13px;color:var(--text-muted)">
+    <span><strong style="color:var(--text)">Total de Gastos:</strong> R$ 1.285,00</span>
+    <span><strong style="color:var(--text)">Média por Manutenção:</strong> R$ 321,25</span>
+  </div>
+</div></div>
+
+<div class="card"><div class="card-hd"><h2>Exportar Relatório</h2></div><div class="card-bd">
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="alert('Relatório PDF exportado!')">📄 Exportar PDF</button>
+    <button class="btn btn-outline" onclick="alert('Relatório CSV exportado!')">📊 Exportar CSV</button>
+    <button class="btn btn-outline" onclick="alert('Relatório enviado para o e-mail do gestor.')">✉️ Enviar por E-mail</button>
+  </div>
+</div></div>
+
+</body>
+</html>
